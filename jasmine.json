@@ -1,0 +1,8 @@
+{
+	"spec_files": [
+	  "dist/**/*.specs.js"
+	],
+	"stopSpecOnExpectationFailure": false,
+	"random": false
+  }
+  
