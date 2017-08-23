@@ -1,8 +1,7 @@
 {
     "extends": [
         "tslint:recommended",
-        "tslint-immutable",
-        "tslint-divid"
+        "tslint-immutable"
     ],
     "rules": {
         "arrow-parens": false,
