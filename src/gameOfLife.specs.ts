@@ -9,6 +9,6 @@ describe('GameOfLife', () => {
 
 		const expectedResult = [[0,0],[0,0]];
 		const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-		expect(nextGeneration).toBe(expectedResult);
+		expect(nextGeneration).toEqual(expectedResult);
 	});
 });
