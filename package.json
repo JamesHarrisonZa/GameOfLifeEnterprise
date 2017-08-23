@@ -4,7 +4,7 @@
   "author": "James Harrison",
   "scripts": {
 	"build": "tsc",
-	"test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+	"test": "npm run build && jasmine JASMINE_CONFIG_PATH=jasmine.json"
   },
   "dependencies": {},
   "devDependencies": {
