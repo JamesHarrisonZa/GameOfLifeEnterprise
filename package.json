@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "author": "James Harrison",
   "scripts": {
-	"build": "tsc"
+	"build": "tsc",
+	"test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
   },
-  "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json",
   "dependencies": {},
   "devDependencies": {
     "@types/jasmine": "^2.5.54",
