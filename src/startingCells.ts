@@ -1,20 +1,30 @@
 export class StartingCells {
 
+	public CellsHeight: number;
+	public CellsWidth: number;
+	public Cells: ReadonlyArray<ReadonlyArray<number>>;
 	private _fillPercentage = 40; //Disable animations if you want to fill more
 
-	public getCellsHeight(): number {
+	constructor() {
+
+		this.CellsHeight = this.getCellsHeight();
+		this.CellsWidth = this.getCellsWidth();
+		this.Cells = this.getStartingCells(this.CellsHeight, this.CellsWidth);
+	}
+
+	private getCellsHeight(): number {
 
 		const viewPortHeigth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 		return this.getCellUnits(viewPortHeigth);
 	}
 
-	public getCellsWidth = () => {
+	private getCellsWidth = () => {
 
 		const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		return this.getCellUnits(viewPortWidth);
 	}
 
-	public getStartingCells(gridHeight: number, gridWidth: number): ReadonlyArray<ReadonlyArray<number>> {
+	private getStartingCells(gridHeight: number, gridWidth: number): ReadonlyArray<ReadonlyArray<number>> {
 
 		const cells = new Array<number>(gridHeight)
 			.fill(null) //Cant apply map on undefined elements, need to set to null first
