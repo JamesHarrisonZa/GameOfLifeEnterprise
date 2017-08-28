@@ -90,7 +90,7 @@
         // :: Immutability rules ::
         "readonly-keyword": [true, "ignore-local"],
         "readonly-array": [true, "ignore-local"],
-        "no-let": true,
+        "no-let": false,
         // :: Functional style rules ::
         //"no-this": true,
         //"no-class": true,
