@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.body {
+	margin: 0;
+}
+
+.row div {
+	display: inline-block;
+	height: 10px;
+	width: 10px;
+}
+
+.row div.active {
+	background-color: turquoise;
+}
+
+.row div.inactive {
+	background-color: black;
+}
+
+.animated {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
