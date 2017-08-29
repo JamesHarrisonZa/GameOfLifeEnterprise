@@ -3,10 +3,10 @@ Based off [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeN
 But with all the production workflows in place  
 
 ## Technologies used
-Code
+### Code  
 ![Image of TypeScript](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2y8WLNmxHr9wciYza02AKXwJk_xLJdWrWC6_t_1ijCHzl5iV9)
 
-Module Loading
+### Module Loading  
 ![Image of Browserify](http://browserify.org/images/browserify.png)
 
 ## ToDo   
