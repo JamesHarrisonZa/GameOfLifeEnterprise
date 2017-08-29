@@ -96,7 +96,7 @@ class StartingCells {
     constructor() {
         this._fillPercentage = 40; //Disable animations if you want to fill more
         this.getCellsWidth = () => {
-            const windowMargin = 5;
+            const windowMargin = 2;
             const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
             return this.getCellUnits(viewPortWidth) - windowMargin;
         };

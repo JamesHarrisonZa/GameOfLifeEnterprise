@@ -20,7 +20,7 @@ export class StartingCells {
 
 	private getCellsWidth = () => {
 
-		const windowMargin = 5;
+		const windowMargin = 2;
 		const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		return this.getCellUnits(viewPortWidth) - windowMargin;
 	}
