@@ -1,5 +1,8 @@
-# Dependency directories
+#Dependency directories
 node_modules
 
-#dist
+#Distribution folder
 dist/**/*
+
+#But not these files...
+!dist/bundle.js
