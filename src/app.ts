@@ -1,17 +1,9 @@
 import { StartingCells } from './startingCells';
+import { GameOfLife } from './gameOfLife';
 import { Grid } from './grid';
 
-class App {
+const _refreshSeconds = 0.2;
+const myGrid = new Grid(new StartingCells(), new GameOfLife());
 
-	private _refreshSeconds = 0.2;
-
-	public Initialize(): void {
-
-		const myGrid = new Grid(new StartingCells());
-		myGrid.CreateEmptyDivs();
-		window.setInterval(myGrid.UpdateGrid, this._refreshSeconds * 1000);
-	}
-}
-
-const app = new App();
-app.Initialize();
+myGrid.CreateEmptyDivs();
+window.setInterval(() => myGrid.UpdateGrid(), _refreshSeconds * 1000);
