@@ -20,8 +20,9 @@ export class StartingCells {
 
 	private getCellsWidth = () => {
 
+		const windowMargin = 1;
 		const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-		return this.getCellUnits(viewPortWidth);
+		return this.getCellUnits(viewPortWidth) - windowMargin;
 	}
 
 	private getStartingCells(gridHeight: number, gridWidth: number): ReadonlyArray<ReadonlyArray<number>> {
@@ -41,8 +42,8 @@ export class StartingCells {
 	private getCellUnits(viewPortSize: number):number {
 
 		const cellDimension = 10;
-		const extraMargin = 2;
-		return Math.floor(viewPortSize / cellDimension) - extraMargin;
+		const cellMargin = 2;
+		return Math.floor(viewPortSize / cellDimension) - cellMargin;
 	}
 
 	private isInAreaToRandomise(gridHeight: number, gridWidth: number, y: number, x: number): boolean {

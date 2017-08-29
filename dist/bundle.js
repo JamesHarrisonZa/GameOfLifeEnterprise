@@ -6,8 +6,6 @@ const gameOfLife_1 = require("./gameOfLife");
 const grid_1 = require("./grid");
 const _refreshSeconds = 0.2;
 const myGrid = new grid_1.Grid(new startingCells_1.StartingCells(), new gameOfLife_1.GameOfLife());
-//const refreshFunction = myGrid.UpdateGrid;
-//refreshFunction.bind(myGrid);
 myGrid.CreateEmptyDivs();
 window.setInterval(() => myGrid.UpdateGrid(), _refreshSeconds * 1000);
 
@@ -98,8 +96,9 @@ class StartingCells {
     constructor() {
         this._fillPercentage = 40; //Disable animations if you want to fill more
         this.getCellsWidth = () => {
+            const windowMargin = 1;
             const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            return this.getCellUnits(viewPortWidth);
+            return this.getCellUnits(viewPortWidth) - windowMargin;
         };
         this.CellsHeight = this.getCellsHeight();
         this.CellsWidth = this.getCellsWidth();
@@ -121,8 +120,8 @@ class StartingCells {
     }
     getCellUnits(viewPortSize) {
         const cellDimension = 10;
-        const extraMargin = 2;
-        return Math.floor(viewPortSize / cellDimension) - extraMargin;
+        const cellMargin = 2;
+        return Math.floor(viewPortSize / cellDimension) - cellMargin;
     }
     isInAreaToRandomise(gridHeight, gridWidth, y, x) {
         return y < gridHeight * this._fillPercentage / 100 && x < gridWidth * this._fillPercentage / 100;
