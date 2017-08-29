@@ -8,12 +8,12 @@ export class Grid {
 	private _cells: ReadonlyArray<ReadonlyArray<number>>;
 	private _gameOfLife: GameOfLife;
 
-	constructor(startingCells: StartingCells) {
+	constructor(startingCells: StartingCells, gameOfLife: GameOfLife) {
 
 		this._gridHeight = startingCells.CellsHeight;
 		this._gridWidth = startingCells.CellsWidth;
 		this._cells = startingCells.Cells;
-		this._gameOfLife = new GameOfLife();
+		this._gameOfLife = gameOfLife;
 	}
 
 	public CreateEmptyDivs(): void {
