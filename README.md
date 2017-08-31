@@ -6,11 +6,13 @@ But with all the production workflows in place
 ### Source Code  
 <a name="github">[<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2y8WLNmxHr9wciYza02AKXwJk_xLJdWrWC6_t_1ijCHzl5iV9" width="400px" />](https://github.com/Microsoft/TypeScript)</a>
 
+### Module Loading  
+CommonJS
+<a name="github">[<img src="http://browserify.org/images/browserify.png" width="400px" />](https://github.com/browserify/browserify)</a>
+
 ### Testing
 <a name="github">[<img src="https://rawgithub.com/jasmine/jasmine/master/images/jasmine-horizontal.svg" width="400px" />](https://github.com/jasmine/jasmine)</a>
-
-### Module Loading  
-<a name="github">[<img src="http://browserify.org/images/browserify.png" width="400px" />](https://github.com/browserify/browserify)</a>
+istanbul
 
 ## ToDo   
 * JS Minification  
@@ -21,6 +23,11 @@ But with all the production workflows in place
 
 ## Commands  
 * npm install
+
 * npm run build
-* npm run test  
 * npm run browserify
+
+* npm run test
+* npm run test-summary
+* npm run test-detail
+* npm run test-report 

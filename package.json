@@ -4,17 +4,23 @@
   "author": "James Harrison",
   "private": true,
   "scripts": {
-    "build": "tsc",
+	"build": "tsc",
+	"browserify": "browserify -r ./dist/app.js:App -o ./dist/bundle.js",
     "test": "npm run build && jasmine JASMINE_CONFIG_PATH=jasmine.json",
-    "browserify": "browserify -r ./dist/app.js:App -o ./dist/bundle.js"
+	"_test-cover": "istanbul cover node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json --print none",
+	"test-summary": "npm run _test-cover && remap-istanbul -i coverage/coverage.json -o coverage/coverage-remaped-summary.txt -e \\src\\ -t text-summary && type coverage\\coverage-remaped-summary.txt",
+	"test-detail": "npm run _test-cover && remap-istanbul -i coverage/coverage.json -o coverage/coverage-remaped.txt -e \\src\\ -t text && type coverage\\coverage-remaped.txt",
+	"test-report": "npm run _test-cover && remap-istanbul -i coverage/coverage.json -o coverage/lcov-report-remapped -e \\src\\ -t html && start coverage/lcov-report-remapped/index.html" 
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/jasmine": "^2.5.54",
-    "browserify": "^14.4.0",
-    "jasmine": "^2.7.0",
+	"@types/jasmine": "^2.5.54",
+	"typescript": "^2.4.2",
     "tslint": "^5.6.0",
     "tslint-immutable": "^4.0.2",
-    "typescript": "^2.4.2"
+    "browserify": "^14.4.0",
+	"jasmine": "^2.7.0",
+	"istanbul": "^0.4.5",
+	"remap-istanbul": "^0.9.5"
   }
 }

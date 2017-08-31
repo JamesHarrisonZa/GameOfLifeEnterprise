@@ -3,6 +3,8 @@ node_modules
 
 #Distribution folder
 dist/**/*
-
-#But not these files...
+#But not this file...
 !dist/bundle.js
+
+#Code coverage
+coverage
