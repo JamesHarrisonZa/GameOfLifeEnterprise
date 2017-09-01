@@ -5,7 +5,7 @@ const startingCells_1 = require("./startingCells");
 const gameOfLife_1 = require("./gameOfLife");
 const grid_1 = require("./grid");
 const _refreshSeconds = 0.2;
-const myGrid = new grid_1.Grid(new startingCells_1.StartingCells(), new gameOfLife_1.GameOfLife());
+const myGrid = new grid_1.Grid(new startingCells_1.StartingCells(window), new gameOfLife_1.GameOfLife());
 myGrid.CreateEmptyDivs();
 window.setInterval(() => myGrid.UpdateGrid(), _refreshSeconds * 1000);
 
@@ -93,19 +93,19 @@ exports.Grid = Grid;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class StartingCells {
-    constructor() {
+    constructor(window) {
         this._fillPercentage = 40; //Disable animations if you want to fill more
-        this.getCellsWidth = () => {
+        this.getCellsWidth = (window) => {
             const windowMargin = 2;
-            const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            const viewPortWidth = Math.max(window.document.documentElement.clientWidth, window.innerWidth);
             return this.getCellUnits(viewPortWidth) - windowMargin;
         };
-        this.CellsHeight = this.getCellsHeight();
-        this.CellsWidth = this.getCellsWidth();
+        this.CellsHeight = this.getCellsHeight(window);
+        this.CellsWidth = this.getCellsWidth(window);
         this.Cells = this.getStartingCells(this.CellsHeight, this.CellsWidth);
     }
-    getCellsHeight() {
-        const viewPortHeigth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    getCellsHeight(window) {
+        const viewPortHeigth = Math.max(window.document.documentElement.clientHeight, window.innerHeight);
         return this.getCellUnits(viewPortHeigth);
     }
     getStartingCells(gridHeight, gridWidth) {

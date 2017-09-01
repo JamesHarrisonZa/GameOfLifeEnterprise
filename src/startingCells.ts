@@ -14,14 +14,14 @@ export class StartingCells {
 
 	private getCellsHeight(window: Window): number {
 
-		const viewPortHeigth = Math.max(window.document.documentElement.clientHeight, window.innerHeight || 0);
+		const viewPortHeigth = Math.max(window.document.documentElement.clientHeight, window.innerHeight);
 		return this.getCellUnits(viewPortHeigth);
 	}
 
 	private getCellsWidth = (window: Window) => {
 
 		const windowMargin = 2;
-		const viewPortWidth = Math.max(window.document.documentElement.clientWidth, window.innerWidth || 0);
+		const viewPortWidth = Math.max(window.document.documentElement.clientWidth, window.innerWidth);
 		return this.getCellUnits(viewPortWidth) - windowMargin;
 	}
 
