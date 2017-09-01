@@ -5,7 +5,7 @@ const startingCells_1 = require("./startingCells");
 const gameOfLife_1 = require("./gameOfLife");
 const grid_1 = require("./grid");
 const _refreshSeconds = 0.2;
-const myGrid = new grid_1.Grid(new startingCells_1.StartingCells(window), new gameOfLife_1.GameOfLife());
+const myGrid = new grid_1.Grid(new startingCells_1.StartingCells(window), new gameOfLife_1.GameOfLife(), window);
 myGrid.CreateEmptyDivs();
 window.setInterval(() => myGrid.UpdateGrid(), _refreshSeconds * 1000);
 
@@ -33,18 +33,19 @@ exports.GameOfLife = GameOfLife;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Grid {
-    constructor(startingCells, gameOfLife) {
+    constructor(startingCells, gameOfLife, window) {
         this._gridHeight = startingCells.CellsHeight;
         this._gridWidth = startingCells.CellsWidth;
         this._cells = startingCells.Cells;
         this._gameOfLife = gameOfLife;
+        this._window = window;
     }
     CreateEmptyDivs() {
         //Create row with x columns
         for (let x = 0; x < this._gridWidth; x++) {
-            const colDiv = window.document.createElement('div');
+            const colDiv = this._window.document.createElement('div');
             colDiv.classList.add('inactive');
-            window.document.querySelector('.row').appendChild(colDiv);
+            this._window.document.querySelector('.row').appendChild(colDiv);
         }
         //duplicate y times. -1 because we started with 1 row
         for (let y = 0; y < this._gridHeight - 1; y++) {
@@ -53,7 +54,7 @@ class Grid {
     }
     UpdateGrid() {
         this._cells = this._gameOfLife.getNextGeneration(this._cells);
-        const allRows = document.querySelectorAll('.row');
+        const allRows = this._window.document.querySelectorAll('.row');
         for (let y = 0; y < this._gridHeight; y++) {
             const rowDiv = allRows[y];
             for (let x = 0; x < this._gridWidth; x++) {
@@ -66,10 +67,10 @@ class Grid {
         }
     }
     DuplicateRow() {
-        const allRows = document.querySelectorAll('.row');
+        const allRows = this._window.document.querySelectorAll('.row');
         const lastRow = allRows[allRows.length - 1];
         const clone = lastRow.cloneNode(true);
-        document
+        this._window.document
             .querySelector('.grid')
             .appendChild(clone);
     }
