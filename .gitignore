@@ -1,6 +1,9 @@
 #Dependency directories
 node_modules
 
+#Npm errors
+npm-debug.log
+
 #Distribution folder
 dist/**/*
 #But not this file...
