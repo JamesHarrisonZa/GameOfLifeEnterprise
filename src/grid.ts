@@ -7,24 +7,24 @@ export class Grid {
 	private _gridWidth: number;
 	private _cells: ReadonlyArray<ReadonlyArray<number>>;
 	private _gameOfLife: GameOfLife;
-	private _window: Window;
+	private _document: Document;
 
-	constructor(startingCells: StartingCells, gameOfLife: GameOfLife, window: Window) {
+	constructor(startingCells: StartingCells, gameOfLife: GameOfLife, document: Document) {
 
 		this._gridHeight = startingCells.CellsHeight;
 		this._gridWidth = startingCells.CellsWidth;
 		this._cells = startingCells.Cells;
 		this._gameOfLife = gameOfLife;
-		this._window = window;
+		this._document = document;
 	}
 
 	public CreateEmptyDivs(): void {
 
 		//Create row with x columns
 		for (let x = 0; x < this._gridWidth; x++) {
-			const colDiv = this._window.document.createElement('div');
+			const colDiv = this._document.createElement('div');
 			colDiv.classList.add('inactive');
-			this._window.document.querySelector('.row').appendChild(colDiv);
+			this._document.querySelector('.row').appendChild(colDiv);
 		}
 
 		//duplicate y times. -1 because we started with 1 row
@@ -36,7 +36,7 @@ export class Grid {
 	public UpdateGrid(): void {
 
 		this._cells = this._gameOfLife.getNextGeneration(this._cells);
-		const allRows = this._window.document.querySelectorAll('.row');
+		const allRows = this._document.querySelectorAll('.row');
 
 		for (let y = 0; y < this._gridHeight; y++) {
 
@@ -55,10 +55,10 @@ export class Grid {
 	}
 
 	private DuplicateRow(): void {
-		const allRows = this._window.document.querySelectorAll('.row');
+		const allRows = this._document.querySelectorAll('.row');
 		const lastRow = allRows[allRows.length - 1];
 		const clone = lastRow.cloneNode(true);
-		this._window.document
+		this._document
 			.querySelector('.grid')
 			.appendChild(clone);
 	}

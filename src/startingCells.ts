@@ -5,24 +5,22 @@ export class StartingCells {
 	public Cells: ReadonlyArray<ReadonlyArray<number>>;
 	private _fillPercentage = 40; //Disable animations if you want to fill more
 
-	constructor(window: Window) {
+	constructor(windowHeight: number, windowWidth: number) {
 
-		this.CellsHeight = this.getCellsHeight(window);
-		this.CellsWidth = this.getCellsWidth(window);
+		this.CellsHeight = this.getCellsHeight(windowHeight);
+		this.CellsWidth = this.getCellsWidth(windowWidth);
 		this.Cells = this.getStartingCells(this.CellsHeight, this.CellsWidth);
 	}
 
-	private getCellsHeight(window: Window): number {
+	private getCellsHeight(windowHeight: number): number {
 
-		const viewPortHeigth = Math.max(window.document.documentElement.clientHeight, window.innerHeight);
-		return this.getCellUnits(viewPortHeigth);
+		return this.getCellUnits(windowHeight);
 	}
 
-	private getCellsWidth = (window: Window) => {
+	private getCellsWidth = (windowWidth: number) => {
 
 		const windowMargin = 2;
-		const viewPortWidth = Math.max(window.document.documentElement.clientWidth, window.innerWidth);
-		return this.getCellUnits(viewPortWidth) - windowMargin;
+		return this.getCellUnits(windowWidth) - windowMargin;
 	}
 
 	private getStartingCells(gridHeight: number, gridWidth: number): ReadonlyArray<ReadonlyArray<number>> {
