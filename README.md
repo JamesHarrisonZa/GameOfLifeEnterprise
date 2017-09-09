@@ -19,6 +19,7 @@ But with all the production workflows in place
 * Continous integration with CircleCI  
 * Building a docker image and publishing to a DTR  
 * Deploying to Heroku and run a new container.  
+* Caitlin wants google analytics.
 * Logging? Dashboards? Elastic search?
 
 ## Commands  
