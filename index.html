@@ -6,13 +6,15 @@
 	</head>
 	
 	<body>
-		<div class="grid">
-			<div class="row"></div>
-		</div>
 	</body>
-	<!--Scripts loaded here because we are appending to the existing divs -->
+	
+	<!--Scripts loaded here because we are appending to body div -->
 	<script type="text/javascript" src="dist/bundle.js"></script>
 	<script type="text/javascript">
-		require('App');
+		
+		const _refreshSeconds = 0.2;
+		const App = require('App');
+		const myGrid = new App.App(window).Grid;
+		window.setInterval(() => myGrid.UpdateGrid(), _refreshSeconds * 1000);
 	</script>
 	</html>
