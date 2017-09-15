@@ -8,7 +8,7 @@ But with all the production workflows in place
 
 ### Module Loading  
 <a name="website">[<img src="https://blog.lofjard.se/img/upload/commonjs.png" width="400px" />](http://www.commonjs.org)</a>  
-<a name="github">[<img src="http://browserify.org/images/browserify.png" width="400px" />](https://github.com/browserify/browserify)</a>
+<a name="github">[<img src="https://camo.githubusercontent.com/e19e230a9371a44a2eeb484b83ff4fcf8c824cf7/687474703a2f2f737562737461636b2e6e65742f696d616765732f62726f777365726966795f6c6f676f2e706e67" width="400px" />](https://github.com/browserify/browserify)</a>
 
 ### Testing
 <a name="github">[<img src="https://rawgithub.com/jasmine/jasmine/master/images/jasmine-horizontal.svg" width="400px" />](https://github.com/jasmine/jasmine)</a>  
