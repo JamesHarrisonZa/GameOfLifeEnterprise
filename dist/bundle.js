@@ -42,30 +42,11 @@ class Grid {
         this._gridWidth = startingCells.CellsWidth;
         this._cells = startingCells.Cells;
         this._gameOfLife = gameOfLife;
-        this._document = document;
-    }
-    CreateEmptyDivs() {
-        //Create grid and a single row
-        const gridDiv = this._document.createElement('div');
-        gridDiv.classList.add('grid');
-        const rowDiv = this._document.createElement('div');
-        rowDiv.classList.add('row');
-        //Create row with x columns
-        for (let x = 0; x < this._gridWidth; x++) {
-            const colDiv = this._document.createElement('div');
-            colDiv.classList.add('inactive');
-            rowDiv.appendChild(colDiv);
-        }
-        gridDiv.appendChild(rowDiv);
-        //duplicate y times. -1 because we started with 1 row
-        for (let y = 0; y < this._gridHeight - 1; y++) {
-            this.DuplicateRow(gridDiv, rowDiv);
-        }
-        this._document.body.appendChild(gridDiv);
+        this._gridDiv = this.CreateEmptyDivs(document);
     }
     UpdateGrid() {
         this._cells = this._gameOfLife.getNextGeneration(this._cells);
-        const allRows = this._document.querySelectorAll('.row');
+        const allRows = this._gridDiv.querySelectorAll('.row');
         for (let y = 0; y < this._gridHeight; y++) {
             const rowDiv = allRows[y];
             for (let x = 0; x < this._gridWidth; x++) {
@@ -77,13 +58,28 @@ class Grid {
             }
         }
     }
+    CreateEmptyDivs(document) {
+        //Create grid
+        const gridDiv = document.createElement('div');
+        gridDiv.classList.add('grid');
+        //Create single row
+        const rowDiv = document.createElement('div');
+        rowDiv.classList.add('row');
+        //Create row with x columns
+        for (let x = 0; x < this._gridWidth; x++) {
+            const colDiv = document.createElement('div');
+            colDiv.classList.add('inactive');
+            rowDiv.appendChild(colDiv);
+        }
+        gridDiv.appendChild(rowDiv);
+        //duplicate y times. -1 because we started with 1 row
+        for (let y = 0; y < this._gridHeight - 1; y++) {
+            this.DuplicateRow(gridDiv, rowDiv);
+        }
+        document.body.appendChild(gridDiv);
+        return gridDiv;
+    }
     DuplicateRow(gridDiv, rowDiv) {
-        // const allRows = this._document.querySelectorAll('.row');
-        // const lastRow = allRows[allRows.length - 1];
-        // const clone = lastRow.cloneNode(true);
-        // this._document
-        // 	.querySelector('.grid')
-        // 	.appendChild(clone);
         const clone = rowDiv.cloneNode(true);
         gridDiv.appendChild(clone);
     }
