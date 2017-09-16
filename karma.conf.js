@@ -17,7 +17,7 @@ module.exports = function (config) {
 			tsconfig: './tsconfig.json',
 			reports: {
 				"html": "coverage",
-				"text-summary": ""
+				"text": ""
 			}
 		},
 		
