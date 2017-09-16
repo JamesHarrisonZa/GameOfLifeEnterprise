@@ -1,6 +1,6 @@
 # GameOfLifeTypeScript
 Based off [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
-But with all the production workflows in place  
+But with all the focus on tooling and production workflows   
 
 # Technologies used
 ## Source Code  
