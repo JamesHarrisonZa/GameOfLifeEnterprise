@@ -24,15 +24,17 @@ Test's run in a browser enviroment using:
 Code coverage reporting by Istanbul   
 <a name="github">[<img src="https://istanbul.js.org/assets/istanbul-logo.png" width="100px" />](https://github.com/gotwarlost/istanbul)</a>
 
+## Workflows in place
+* Continous integration with CircleCI 
+* Building a new docker image and publishing to Docker Hub
+
 ## ToDo  
-* Continous integration with CircleCI  
-* Building a docker image and publishing to a DTR  
 * Deploying to Heroku and run a new container.  
 * JS Minification?  
 * Google analytics?  
 * Logging? Dashboards? Elastic search?  
 
-## Commands  
+## Commands to run locally  
 * npm install
 * npm run build
 * npm run browserify
