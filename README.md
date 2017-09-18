@@ -28,14 +28,14 @@ Code coverage reporting by Istanbul
 * Continous integration with CircleCI 
 * Building a new docker image and publishing to Docker Hub
 
-## ToDo  
-* Deploying to Heroku and run a new container.  
-* JS Minification?  
-* Google analytics?  
-* Logging? Dashboards? Elastic search?  
-
 ## Commands to run locally  
 * npm install
 * npm run build
 * npm run browserify
 * npm run test
+
+## ToDo  
+* Deploying to Heroku and run a new container.  
+* JS Minification?  
+* Google analytics?  
+* Logging? Dashboards? Elastic search?  
