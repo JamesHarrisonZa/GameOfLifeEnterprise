@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "browserify": "browserify -r ./dist/app.js:App -o ./dist/bundle.js",
-    "test": "karma start"
+	"test": "karma start",
+	"test-single": "karma start --single-run"
   },
   "dependencies": {},
   "devDependencies": {
