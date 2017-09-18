@@ -40,5 +40,4 @@ jobs:
 
       # deployment
       - deploy: 
-          commands:
-            - $DOCKER_HUB_TRIGGER
+          command: $DOCKER_HUB_TRIGGER
