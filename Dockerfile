@@ -1,8 +1,9 @@
 FROM nginx:alpine
-MAINTAINER james.harrison.za@gmail.com
+LABEL maintainer = "james.harrison.za@gmail.com"
 COPY . /usr/share/nginx/html
 
 #EXPOSE 80
+CMD service nginx start
 
 #--<< Docker Commands >>--
 #Using image and container tag/name: gol
