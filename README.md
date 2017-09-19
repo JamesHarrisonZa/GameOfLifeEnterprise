@@ -34,8 +34,16 @@ Code coverage reporting by Istanbul
 * npm run browserify
 * npm run test
 
+## Docker Commands  
+Using image and container tag/name: gol  
+Should be running on http://localhost:42420/ afterwards or a random port if using -P  
+* docker build -t gol .  
+* docker run -d --rm --name gol -p 42420:80 gol  
+* docker run -d --rm --name gol -P gol  
+
 ## ToDo  
 * Deploying to Heroku and run a new container.  
 * JS Minification?  
 * Google analytics?  
 * Logging? Dashboards? Elastic search?  
+
