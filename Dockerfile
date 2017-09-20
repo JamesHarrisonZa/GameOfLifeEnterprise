@@ -15,5 +15,13 @@ ENTRYPOINT ["/bin/sh", "-c"]
 #Heroku suggests For local testing
 #RUN adduser -D myuser
 #USER myuser
+#[warn] 5#5: the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
+#nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
+#[emerg] 5#5: mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
+#nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
 
-CMD ["/usr/sbin/nginx -g 'daemon off;'"]
+#works locally. heroku: Starting process with command `/usr/sbin/nginx\ -g\ \"daemon\ off\;\"`  Error: No such file or directory
+CMD ["/usr/sbin/nginx -g \"daemon off;\""]
+
+#Heroku: Error: No such file or directory
+#CMD [ "echo pwd" ]
