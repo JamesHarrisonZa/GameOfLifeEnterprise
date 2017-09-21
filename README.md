@@ -27,6 +27,9 @@ Code coverage reporting by Istanbul
 ## Workflows in place
 * Continous integration with CircleCI 
 * Building a new docker image and publishing to Docker Hub
+## Workflows ToDo  
+* Get container running on Heroku/AWS Beenstalk/Google Cloud
+* Webhook that spin up containers from a succesful CI build or dockerhub push
 
 ## Commands to run locally  
 * npm install
