@@ -15,10 +15,10 @@ export class Grid {
 		this._gridWidth = startingCells.CellsWidth;
 		this._cells = startingCells.Cells;
 		this._gameOfLife = gameOfLife;
-		this._gridDiv = this.CreateEmptyDivs(document);
+		this._gridDiv = this.createEmptyDivs(document);
 	}
 
-	public UpdateGrid(): void {
+	public updateGrid(): void {
 
 		this._cells = this._gameOfLife.getNextGeneration(this._cells);
 		const allRows = this._gridDiv.querySelectorAll('.row');
@@ -32,14 +32,14 @@ export class Grid {
 				const colDiv = rowDiv.childNodes[x] as HTMLDivElement;
 				const cell = this._cells[y][x];
 
-				if (this.CellNeedsUpdating(colDiv, cell)) {
-					this.SetIsActive(colDiv, cell);
+				if (this.cellNeedsUpdating(colDiv, cell)) {
+					this.setIsActive(colDiv, cell);
 				}
 			}
 		}
 	}
 
-	private CreateEmptyDivs(document: Document): HTMLDivElement {
+	private createEmptyDivs(document: Document): HTMLDivElement {
 
 		//Create grid
 		const gridDiv = document.createElement('div');
@@ -60,25 +60,25 @@ export class Grid {
 
 		//duplicate y times. -1 because we started with 1 row
 		for (let y = 0; y < this._gridHeight - 1; y++) {
-			this.DuplicateRow(gridDiv, rowDiv);
+			this.duplicateRow(gridDiv, rowDiv);
 		}
 
 		document.body.appendChild(gridDiv);
 		return gridDiv;
 	}
 
-	private DuplicateRow(gridDiv: HTMLDivElement, rowDiv: HTMLDivElement): void {
+	private duplicateRow(gridDiv: HTMLDivElement, rowDiv: HTMLDivElement): void {
 
 		const clone = rowDiv.cloneNode(true);
 		gridDiv.appendChild(clone);
 	}
 
-	private CellNeedsUpdating(colDiv: HTMLDivElement, cell: number): boolean {
+	private cellNeedsUpdating(colDiv: HTMLDivElement, cell: number): boolean {
 
 		return (colDiv.classList[0] === 'inactive' && cell === 1) || (colDiv.classList[0] === 'active' && cell === 0);
 	}
 
-	private SetIsActive(cellDiv: HTMLDivElement, isActive: number): void {
+	private setIsActive(cellDiv: HTMLDivElement, isActive: number): void {
 		if (!!isActive) {
 			cellDiv.classList.remove('inactive'); //, 'animated', 'fadeOut'
 			cellDiv.classList.add('active'); //, 'animated', 'fadeIn'

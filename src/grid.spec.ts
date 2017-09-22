@@ -1,4 +1,3 @@
-//import * as TypeMoq from 'typemoq';
 import { Grid } from './grid';
 import { StartingCells } from './startingCells';
 import { GameOfLife } from './gameOfLife';
@@ -13,7 +12,9 @@ describe('Grid', () => {
 	const gameOfLife = new GameOfLife();
 	const grid = new Grid(startingCells, gameOfLife, _document);
 
-	it('should be defined', () => expect(grid).toBeDefined());
+	// beforeEach(() => {
+	// 	var spiedFunction = spyOn(grid, 'createEmptyDivs').and.callThrough();
+	// });
 
 	//it should create empty divs
 
@@ -23,7 +24,7 @@ describe('Grid', () => {
 
 			beforeEach(() => {
 				spyOn(gameOfLife, 'getNextGeneration').and.callThrough();
-				grid.UpdateGrid();
+				grid.updateGrid();
 			});
 
 			it('should get the next generation of the game of life', () => expect(gameOfLife.getNextGeneration).toHaveBeenCalledTimes(1));
