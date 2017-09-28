@@ -42,9 +42,9 @@ class Grid {
         this._gridWidth = startingCells.CellsWidth;
         this._cells = startingCells.Cells;
         this._gameOfLife = gameOfLife;
-        this._gridDiv = this.CreateEmptyDivs(document);
+        this._gridDiv = this.createEmptyDivs(document);
     }
-    UpdateGrid() {
+    updateGrid() {
         this._cells = this._gameOfLife.getNextGeneration(this._cells);
         const allRows = this._gridDiv.querySelectorAll('.row');
         for (let y = 0; y < this._gridHeight; y++) {
@@ -52,13 +52,13 @@ class Grid {
             for (let x = 0; x < this._gridWidth; x++) {
                 const colDiv = rowDiv.childNodes[x];
                 const cell = this._cells[y][x];
-                if (this.CellNeedsUpdating(colDiv, cell)) {
-                    this.SetIsActive(colDiv, cell);
+                if (this.cellNeedsUpdating(colDiv, cell)) {
+                    this.setIsActive(colDiv, cell);
                 }
             }
         }
     }
-    CreateEmptyDivs(document) {
+    createEmptyDivs(document) {
         //Create grid
         const gridDiv = document.createElement('div');
         gridDiv.classList.add('grid');
@@ -74,19 +74,19 @@ class Grid {
         gridDiv.appendChild(rowDiv);
         //duplicate y times. -1 because we started with 1 row
         for (let y = 0; y < this._gridHeight - 1; y++) {
-            this.DuplicateRow(gridDiv, rowDiv);
+            this.duplicateRow(gridDiv, rowDiv);
         }
         document.body.appendChild(gridDiv);
         return gridDiv;
     }
-    DuplicateRow(gridDiv, rowDiv) {
+    duplicateRow(gridDiv, rowDiv) {
         const clone = rowDiv.cloneNode(true);
         gridDiv.appendChild(clone);
     }
-    CellNeedsUpdating(colDiv, cell) {
+    cellNeedsUpdating(colDiv, cell) {
         return (colDiv.classList[0] === 'inactive' && cell === 1) || (colDiv.classList[0] === 'active' && cell === 0);
     }
-    SetIsActive(cellDiv, isActive) {
+    setIsActive(cellDiv, isActive) {
         if (!!isActive) {
             cellDiv.classList.remove('inactive'); //, 'animated', 'fadeOut'
             cellDiv.classList.add('active'); //, 'animated', 'fadeIn'
