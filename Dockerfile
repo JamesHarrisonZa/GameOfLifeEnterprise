@@ -9,8 +9,8 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 
 #Defaults on Heroku
-WORKDIR /
-ENTRYPOINT ["/bin/sh", "-c"] 
+#WORKDIR /
+#ENTRYPOINT ["/bin/sh", "-c"] 
 
 #Heroku suggests For local testing
 #RUN adduser -D myuser
@@ -21,7 +21,7 @@ ENTRYPOINT ["/bin/sh", "-c"]
 #nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
 
 #works locally. heroku: Starting process with command `/usr/sbin/nginx\ -g\ \"daemon\ off\;\"`  Error: No such file or directory
-CMD ["/usr/sbin/nginx -g \"daemon off;\""]
+#CMD ["/usr/sbin/nginx -g \"daemon off;\""]
 
 #Heroku: Error: No such file or directory
 #CMD [ "echo pwd" ]
