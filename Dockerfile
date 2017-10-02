@@ -3,7 +3,10 @@ FROM nginx:alpine
 LABEL maintainer = "james.harrison.za@gmail.com"
 
 #Website files
-COPY . /usr/share/nginx/html
+COPY ./dist/bundle.js /usr/share/nginx/html/dist/
+COPY ./styles/* /usr/share/nginx/html
+COPY ./index.html /usr/share/nginx/html
+COPY ./favicon.ico /usr/share/nginx/html
 
 #Expose is ignored on Heroku. Only useful for local testing
 EXPOSE 80
