@@ -4,7 +4,7 @@ LABEL maintainer = "james.harrison.za@gmail.com"
 
 #Website files
 COPY ./dist/bundle.js /usr/share/nginx/html/dist/
-COPY ./styles/* /usr/share/nginx/html
+COPY ./styles/* /usr/share/nginx/html/styles/
 COPY ./index.html /usr/share/nginx/html
 COPY ./favicon.ico /usr/share/nginx/html
 
