@@ -27,9 +27,9 @@ Code coverage reporting by Istanbul
 ## Workflows in place
 * Continous integration with CircleCI 
 * Building a new docker image and publishing to Docker Hub
+* Containers running on Google Cloud based off the image in Docker hub
 ## Workflows ToDo  
-* Get container running on Heroku/AWS Beenstalk/Google Cloud
-* Webhook that spin up containers from a succesful CI build or dockerhub push
+* Webhook that spin up initiates a rolling update when the dockerhub build succedes
 
 ## Commands to run locally  
 * npm install
@@ -45,6 +45,6 @@ Should be running on http://localhost:42420/ afterwards
 * docker exec -it gol /bin/bash  
 
 ## ToDo  
-* Hosting and container management 
+* Copy css files to public folder
 * JS Minification?  
 * Google analytics? 
