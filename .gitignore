@@ -6,8 +6,6 @@ npm-debug.log
 
 #Distribution folder
 dist/**/*
-#But not this file...
-!dist/bundle.js
 
 #Code coverage
 coverage

@@ -5,11 +5,14 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "browserify": "browserify -r ./dist/app.js:App -o ./dist/bundle.js",
-	"test": "karma start",
-	"test-single": "karma start --single-run"
+    "browserify": "browserify -r ./dist/app.js:App -o ./public/bundle.js",
+    "test": "karma start",
+	"test-single": "karma start --single-run",
+	"start": "node server.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.2"
+  },
   "devDependencies": {
     "@types/jasmine": "^2.5.54",
     "browserify": "^14.4.0",

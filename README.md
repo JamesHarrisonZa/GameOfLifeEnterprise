@@ -39,14 +39,12 @@ Code coverage reporting by Istanbul
 
 ## Docker Commands  
 Using image and container tag/name: gol  
-Should be running on http://localhost:42420/ afterwards or a random port if using -P  
+Should be running on http://localhost:42420/ afterwards
 * docker build -t gol .  
-* docker run -d --rm --name gol -p 42420:80 gol  
-* docker run -d --rm --name gol -P gol  
+* docker run -d --rm --name gol -p 42420:30042 gol  
+* docker exec -it gol /bin/bash  
 
 ## ToDo  
-* Deploying to Heroku and run a new container.  
+* Hosting and container management 
 * JS Minification?  
-* Google analytics?  
-* Logging? Dashboards? Elastic search?  
-
+* Google analytics? 

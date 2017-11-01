@@ -1,30 +1,24 @@
-FROM nginx:alpine
-#FROM roylines/nginx
+FROM node:8
 LABEL maintainer = "james.harrison.za@gmail.com"
 
-#Website files
-COPY ./dist/bundle.js /usr/share/nginx/html/dist/
-COPY ./styles/* /usr/share/nginx/html/styles/
-COPY ./index.html /usr/share/nginx/html
-COPY ./favicon.ico /usr/share/nginx/html
+WORKDIR /usr/src/app
 
-#Expose is ignored on Heroku. Only useful for local testing
-EXPOSE 80
+# Packages
+COPY package.json .
+RUN npm install
 
-#Defaults on Heroku
-#WORKDIR /
-#ENTRYPOINT ["/bin/sh", "-c"] 
+# Required files
+COPY ./public ./public/
+COPY ./index.html .
+COPY ./server.js .
+COPY ./favicon.ico .
 
-#Heroku suggests For local testing
-#RUN adduser -D myuser
-#USER myuser
-#[warn] 5#5: the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
-#nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
-#[emerg] 5#5: mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
-#nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
+#Build bundle.js
+COPY tsconfig.json .
+COPY ./src ./src/
+RUN npm run build
+RUN npm run browserify
 
-#works locally. heroku: Starting process with command `/usr/sbin/nginx\ -g\ \"daemon\ off\;\"`  Error: No such file or directory
-#CMD ["/usr/sbin/nginx -g \"daemon off;\""]
+EXPOSE 30042
 
-#Heroku: Error: No such file or directory
-#CMD [ "echo pwd" ]
+CMD [ "npm", "start" ]
