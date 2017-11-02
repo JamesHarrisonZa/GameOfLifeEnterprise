@@ -19,6 +19,6 @@ COPY ./src ./src/
 RUN npm run build
 RUN npm run browserify
 
-EXPOSE 80
+EXPOSE 42420
 
 CMD [ "npm", "start" ]

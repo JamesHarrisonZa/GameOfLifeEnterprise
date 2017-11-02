@@ -41,7 +41,7 @@ Code coverage reporting by Istanbul
 Using image and container tag/name: gol  
 Should be running on http://localhost:42420/ afterwards
 * docker build -t gol .  
-* docker run -d --rm --name gol -p 42420:30042 gol  
+* docker run -d --rm --name gol -p 42420:42420 gol  
 * docker exec -it gol /bin/bash  
 
 ## ToDo  
