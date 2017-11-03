@@ -56,7 +56,9 @@ Should be running on http://localhost:42420/ afterwards
 * docker exec -it gol /bin/bash  
 
 ## Kubernetes commands
-Will add more here soon.
+(Will add more here soon.) 
+   
+After connecting to the cluster.
 * kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript  
 
 ## ToDo
