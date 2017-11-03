@@ -24,18 +24,24 @@ Test's run in a browser enviroment using:
 Code coverage reporting by Istanbul   
 <a name="github">[<img src="https://istanbul.js.org/assets/istanbul-logo.png" width="100px" />](https://github.com/gotwarlost/istanbul)</a>
 
+## Runtime Enviroment
+
+<a name="website">[<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="300px" />](https://nodejs.org/en/)</a>  
+
+ ## Content served by
+
+<a name="github">[<img src="https://camo.githubusercontent.com/fc61dcbdb7a6e49d3adecc12194b24ab20dfa25b/68747470733a2f2f692e636c6f756475702e636f6d2f7a6659366c4c376546612d3330303078333030302e706e67" width="400px" />](https://github.com/expressjs/express/)</a> 
+
 ## Containerization
 <a name="website">[<img src="https://camo.githubusercontent.com/3482fc32e1f4cad0c44039c8f01e1e270e6894ee/687474703a2f2f692e696d6775722e636f6d2f4b6764574c64682e706e67" width="400px" />](https://www.docker.com/)</a>  
 Image stored in Dockerhub  
 https://hub.docker.com/r/jamesharrisonza/gameoflifetypescript/
 
 ## Continous integration
-<a name="website">[<img src="https://d3r49iyjzglexf.cloudfront.net/logo-wordmark-26f8eaea9b0f6e13b90d3f4a8fd8fda31490f5af41daab98bbede45037682576.svg" width="400px" />](https://circleci.com/)</a> 
-
+<a name="website">[<img src="https://lever-client-logos.s3.amazonaws.com/circle-logo-horizontal.png" width="400px" />](https://circleci.com/)</a> 
 
 ## Deployment and container orchestration
-With Kubernetes  
-<a name="website">[<img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="150px" />](https://kubernetes.io/)</a> 
+<a name="website">[<img src="http://kompose.io/img/kubernetes_full.png" width="400px" />](https://kubernetes.io/)</a> 
 
 ## Hosting
 Google Cloud Platform
