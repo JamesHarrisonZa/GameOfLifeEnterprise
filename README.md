@@ -60,7 +60,7 @@ Should be running on http://localhost:42420/ afterwards
 
 ## Kubernetes commands
 
-After connecting to the cluster. cd to the kubernetes folder
+With kubectl installed. Connect to the cluster with command provided by cloud provider. cd to the kubernetes folder.
 
 * kubectl create -f Deployment.yml
 * kubectl apply -f Deployment.yml --record
