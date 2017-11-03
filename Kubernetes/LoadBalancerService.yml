@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: game-of-life
+  namespace: default
+  labels:
+    app: game-of-life
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 42420
+    protocol: TCP
+    nodePort: 30293
+  selector:
+    app: game-of-life
+  loadBalancerIP: 35.195.231.9

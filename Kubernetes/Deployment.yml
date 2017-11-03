@@ -1,64 +1,27 @@
+apiVersion: extensions/v1beta1
 kind: Deployment
-apiVersion: "extensions/v1beta1"
-metadata: 
- name: "game-of-life"
- namespace: default
- selfLink: "/apis/extensions/v1beta1/namespaces/default/deployments/game-of-life"
- uid: "0eb09cdf-becb-11e7-9b61-42010a840171"
- resourceVersion: 215182
- generation: 9
- creationTimestamp: "2017-11-01T06:08:19Z"
- labels: 
-  app: "game-of-life"
- annotations: 
-  "deployment.kubernetes.io/revision": 9
-spec: 
- replicas: 1
- selector: 
-  matchLabels: 
-   app: "game-of-life"
- template: 
-  metadata: 
-   name: "game-of-life"
-   creationTimestamp: null
-   labels: 
-    app: "game-of-life"
-  spec: 
-   containers: 
-    - 
-   name: "game-of-life"
-     image: "jamesharrisonza/gameoflifetypescript"
-     ports: 
-      - 
-   containerPort: 42420
-       protocol: TCP
-     resources: 
-     terminationMessagePath: "/dev/termination-log"
-     terminationMessagePolicy: File
-     imagePullPolicy: Always
-     securityContext: 
-      privileged: false
-   restartPolicy: Always
-   terminationGracePeriodSeconds: 30
-   dnsPolicy: ClusterFirst
-   securityContext: 
-   schedulerName: "default-scheduler"
- strategy: 
-  type: RollingUpdate
-  rollingUpdate: 
-   maxUnavailable: 1
-   maxSurge: 1
-status: 
- observedGeneration: 9
- replicas: 1
- updatedReplicas: 1
- readyReplicas: 1
- availableReplicas: 1
- conditions: 
-  - 
-   type: Available
-   status: True
-   lastUpdateTime: "2017-11-01T06:08:19Z"
-   lastTransitionTime: "2017-11-01T06:08:19Z"
-   reason: MinimumReplicasAvailable
-   message: "Deployment has minimum availability."
+metadata:
+  name: game-of-life
+  namespace: default
+  labels:
+    app: game-of-life
+spec:
+  replicas: 1 # Number of pods we want
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: game-of-life
+  template:
+    metadata:
+      labels:
+        app: game-of-life
+    spec:
+      containers:
+      - name: game-of-life
+        image: jamesharrisonza/gameoflifetypescript
+        ports:
+        - containerPort: 42420

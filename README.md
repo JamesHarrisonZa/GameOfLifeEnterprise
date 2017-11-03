@@ -59,9 +59,18 @@ Should be running on http://localhost:42420/ afterwards
 * docker exec -it gol /bin/bash  
 
 ## Kubernetes commands
-(Will add more here soon.)  
 
-After connecting to the cluster.
+After connecting to the cluster. cd to the kubernetes folder
+
+* kubectl create -f Deployment.yml
+* kubectl apply -f Deployment.yml --record
+* kubectl rollout status deployment game-of-life
+* kubectl delete Deployment game-of-life
+
+* kubectl create -f LoadBalancerService.yml
+* kubectl apply -f LoadBalancerService.yml
+* kubectl delete svc game-of-life
+
 * kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript  
 
 ## ToDo
