@@ -14,4 +14,3 @@ spec:
     nodePort: 30293
   selector:
     app: game-of-life
-  loadBalancerIP: 35.195.231.9
