@@ -7,8 +7,6 @@ But with all the focus on tooling and production workflows
 JavaScript type safety and compile checking using:   
 <a name="github">[<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2y8WLNmxHr9wciYza02AKXwJk_xLJdWrWC6_t_1ijCHzl5iV9" width="400px" />](https://github.com/Microsoft/TypeScript)</a>
 
-## Module Loading  
-
 Import module features and generation using:   
 <a name="website">[<img src="https://blog.lofjard.se/img/upload/commonjs.png" width="400px" />](http://www.commonjs.org)</a>  
 Module loading in the browser using:  
@@ -28,8 +26,7 @@ Code coverage reporting by Istanbul
 
 <a name="website">[<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="300px" />](https://nodejs.org/en/)</a>  
 
- ## Content served by
-
+Content served by  
 <a name="github">[<img src="https://camo.githubusercontent.com/fc61dcbdb7a6e49d3adecc12194b24ab20dfa25b/68747470733a2f2f692e636c6f756475702e636f6d2f7a6659366c4c376546612d3330303078333030302e706e67" width="400px" />](https://github.com/expressjs/express/)</a> 
 
 ## Containerization
