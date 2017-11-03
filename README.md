@@ -24,14 +24,25 @@ Test's run in a browser enviroment using:
 Code coverage reporting by Istanbul   
 <a name="github">[<img src="https://istanbul.js.org/assets/istanbul-logo.png" width="100px" />](https://github.com/gotwarlost/istanbul)</a>
 
-## Workflows in place
-* Continous integration with CircleCI 
-* Building a new docker image and publishing to Docker Hub
-* Containers running on Google Cloud based off the image in Docker hub
-## Workflows ToDo  
-* Webhook that spin up initiates a rolling update when the dockerhub build succedes
+## Containerization
+<a name="website">[<img src="https://camo.githubusercontent.com/3482fc32e1f4cad0c44039c8f01e1e270e6894ee/687474703a2f2f692e696d6775722e636f6d2f4b6764574c64682e706e67" width="400px" />](https://www.docker.com/)</a>  
+Image stored in Dockerhub  
+https://hub.docker.com/r/jamesharrisonza/gameoflifetypescript/
 
-## Commands to run locally  
+## Continous integration
+<a name="website">[<img src="https://d3r49iyjzglexf.cloudfront.net/logo-wordmark-26f8eaea9b0f6e13b90d3f4a8fd8fda31490f5af41daab98bbede45037682576.svg" width="400px" />](https://circleci.com/)</a> 
+
+
+## Deployment and container orchestration
+With Kubernetes  
+<a name="website">[<img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="150px" />](https://kubernetes.io/)</a> 
+
+## Hosting
+Google Cloud Platform
+
+<a name="website">[<img src="https://cloud.google.com/_static/2e380f3acd/images/cloud/gcp-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
+
+## Local Enviroment Commands
 * npm install
 * npm run build
 * npm run browserify
@@ -44,7 +55,13 @@ Should be running on http://localhost:42420/ afterwards
 * docker run -d --rm --name gol -p 42420:42420 gol  
 * docker exec -it gol /bin/bash  
 
-## ToDo  
+## Kubernetes commands
+Will add more here soon.
+* kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript  
+
+## ToDo
+* Webhook that spin up initiates a rolling update when the dockerhub build succedes
 * Copy css files to public folder
+* Move Kubernetes config yml files into project folder and use apply commands
 * JS Minification?  
 * Google analytics? 
