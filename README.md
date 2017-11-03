@@ -73,7 +73,7 @@ With kubectl installed. Connect to the cluster with command provided by cloud pr
 
 ## ToDo
 * Webhook that spin up initiates a rolling update when the dockerhub build succedes
-* Copy css files to public folder
-* Move Kubernetes config yml files into project folder and use apply commands
-* JS Minification?  
-* Google analytics? 
+* Change circle ci to run tests in one of my previous images.
+* Copy css files to public folder, then git ignore public folder.
+* JS Minification  
+* Google analytics  
