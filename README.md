@@ -85,6 +85,8 @@ With kubectl installed. Connect to the cluster with command provided by host pro
 
 ## Hosting
 
+Cluster of 3 nodes living in Google's europe-west1 datacenter via
+
 <a name="website">[<img src="https://cloud.google.com/_static/2e380f3acd/images/cloud/gcp-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
 
 ## ToDo
