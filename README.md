@@ -65,9 +65,7 @@ On success: triggers Dockerhub to build a new Image.
 <a name="website">[<img src="https://lever-client-logos.s3.amazonaws.com/circle-logo-horizontal.png" width="400px" />](https://circleci.com/)</a> 
 
 ## Deployment and container orchestration
-Loadbalancer service with a static IP  
-Replication Controller that maintains a healthy desired state of multiple running applications  
-Performs rolling updates  
+Runs containers from my latest Docker image. Loadbalancer service with a static IP. Replication Controller that maintains a healthy desired state of multiple running applications. Performs rolling updates.  
 <a name="website">[<img src="http://kompose.io/img/kubernetes_full.png" width="400px" />](https://kubernetes.io/)</a> 
 
 ### commands
