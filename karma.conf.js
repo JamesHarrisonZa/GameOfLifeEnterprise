@@ -30,5 +30,26 @@ module.exports = function (config) {
 		],
 
 		browsers: ['ChromeHeadless'],
+
+		customLaunchers: {
+			ChromiumNoSandbox: {
+				base: 'ChromeHeadless',
+				flags: [
+					'--disable-background-networking',
+					'--disable-default-apps',
+					'--disable-extensions',
+					'--disable-gpu',
+					'--disable-sync',
+					'--disable-translate',
+					'--headless',
+					'--hide-scrollbars',
+					'--metrics-recording-only',
+					'--mute-audio',
+					'--no-first-run',
+					'--remote-debugging-port=42420',
+					'--safebrowsing-disable-auto-update'
+				]
+			}
+		}
 	});
 };
