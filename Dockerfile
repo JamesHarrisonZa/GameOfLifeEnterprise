@@ -1,4 +1,5 @@
-FROM node:8.9.1-alpine
+FROM node:8.9.1-alpine 
+#NOTE: Keep image used above in sync with what our CI runs tests in: \.circleci\config.yml
 LABEL maintainer = "james.harrison.za@gmail.com"
 
 WORKDIR /usr/src/app
