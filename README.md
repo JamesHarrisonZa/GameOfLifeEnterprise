@@ -43,13 +43,11 @@ Should be running on http://localhost:42420/ afterwards
 * npm run start
 
 ## Containerization
+App and all its dependancies packaged into a rerunable container using.
 <a name="website">[<img src="https://camo.githubusercontent.com/3482fc32e1f4cad0c44039c8f01e1e270e6894ee/687474703a2f2f692e696d6775722e636f6d2f4b6764574c64682e706e67" width="400px" />](https://www.docker.com/)</a>   
 
-Running in operating system
-
+On operating system  
 <a name="website">[<img src="https://alpinelinux.org/alpinelinux-logo.svg" width="400px" />](https://www.alpinelinux.org/about/)</a> 
-
-
 
 Image stored in Dockerhub  
 https://hub.docker.com/r/jamesharrisonza/gameoflifetypescript/
@@ -62,9 +60,14 @@ Should be running on http://localhost:42420/ afterwards
 * docker exec -it gol /bin/bash  
 
 ## Continous integration
+Running tests as code goes into the master branch.    
+On success: triggers Dockerhub to build a new Image.  
 <a name="website">[<img src="https://lever-client-logos.s3.amazonaws.com/circle-logo-horizontal.png" width="400px" />](https://circleci.com/)</a> 
 
 ## Deployment and container orchestration
+Loadbalancer service with a static IP  
+Replication Controller that maintains a healthy desired state of multiple running applications  
+Performs rolling updates  
 <a name="website">[<img src="http://kompose.io/img/kubernetes_full.png" width="400px" />](https://kubernetes.io/)</a> 
 
 ### commands
