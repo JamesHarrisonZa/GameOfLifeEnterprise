@@ -43,7 +43,14 @@ Should be running on http://localhost:42420/ afterwards
 * npm run start
 
 ## Containerization
-<a name="website">[<img src="https://camo.githubusercontent.com/3482fc32e1f4cad0c44039c8f01e1e270e6894ee/687474703a2f2f692e696d6775722e636f6d2f4b6764574c64682e706e67" width="400px" />](https://www.docker.com/)</a>  
+<a name="website">[<img src="https://camo.githubusercontent.com/3482fc32e1f4cad0c44039c8f01e1e270e6894ee/687474703a2f2f692e696d6775722e636f6d2f4b6764574c64682e706e67" width="400px" />](https://www.docker.com/)</a>   
+
+Running in operating system
+
+<a name="website">[<img src="https://alpinelinux.org/alpinelinux-logo.svg" width="400px" />](https://www.alpinelinux.org/about/)</a> 
+
+
+
 Image stored in Dockerhub  
 https://hub.docker.com/r/jamesharrisonza/gameoflifetypescript/
 
@@ -78,8 +85,7 @@ With kubectl installed. Connect to the cluster with command provided by host pro
 <a name="website">[<img src="https://cloud.google.com/_static/2e380f3acd/images/cloud/gcp-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
 
 ## ToDo
-* Change circle ci to run tests in one of my previous images. (In progress)
-* Webhook that spin up initiates a rolling update when the dockerhub build succedes
+* Webhook that spin up initiates a rolling update when the dockerhub build succedes. Might need to change to use GCP DTR to store image. 
 * Copy css files to public folder, then git ignore public folder.
 * JS Minification  
 * Google analytics  
