@@ -42,8 +42,8 @@ jobs:
       auth:
       #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
         username: _json_key
-        password: $GOOGLE_AUTH 
-    - steps:
-       - run: echo ${GOOGLE_AUTH} 
-       - run: echo 42
+        password: $GOOGLE_AUTH
+
+    steps:
+    - run: echo ${GOOGLE_AUTH}
       #    > ${HOME}/gcp-key.json
