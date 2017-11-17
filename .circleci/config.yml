@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+- build:
     docker:
       # NOTE: Keep the image below in sync with what we use in the Dockerfile
       - image: circleci/node:8.9.1-browsers
@@ -36,7 +36,7 @@ jobs:
       # deployment
     #   - deploy: 
     #       command: $DOCKER_HUB_TRIGGER
-  deploy:
+- deploy:
     docker: 
     - image: gcr.io/project/google/cloud-sdk:alpine
       auth:
