@@ -34,5 +34,18 @@ jobs:
       - run: yarn test-single
 
       # deployment
-      - deploy: 
-          command: $DOCKER_HUB_TRIGGER
+    #   - deploy: 
+    #       command: $DOCKER_HUB_TRIGGER
+  deploy:
+    docker: 
+    - image: gcr.io/project/google/cloud-sdk:alpine
+      auth:
+      #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
+        username: _json_key
+        password: $GOOGLE_AUTH 
+    - steps:
+       # ...
+       - run:
+         name: Dump Google Cloud Credentials to file
+         command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+       # ... 
