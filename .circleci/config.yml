@@ -39,7 +39,7 @@ jobs:
 
   deploy:
     docker: 
-    - image: google/cloud-sdk:alpine #gcr.io/myproject/myimage
+    - image: circleci/node:8.9.1-browsers  #gcr.io/myproject/myimage
       auth:
       #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
         username: _json_key
