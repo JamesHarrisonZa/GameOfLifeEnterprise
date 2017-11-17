@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # NOTE: Keep the image below in sync with what we use in the Dockerfile
       - image: circleci/node:8.9.1-browsers
@@ -33,35 +33,21 @@ jobs:
       # run tests!
       - run: yarn test-single
 
-      # deployment
+    #   deployment
     #   - deploy: 
     #       command: $DOCKER_HUB_TRIGGER
 
-#   deploy:
-#     docker: 
-#     - image: gcr.io/project/google/cloud-sdk:alpine
-#       auth:
-#       #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
-#         username: _json_key
-#         password: $GOOGLE_AUTH
+  deployment:
+    docker: 
+    - image: gcr.io/project/google/cloud-sdk:alpine
+      auth:
+      #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
+        username: _json_key
+        password: $GOOGLE_AUTH
 
-#     steps:
-#     - run: echo ${GOOGLE_AUTH}
-#       #    > ${HOME}/gcp-key.json
-
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      build:
-        docker:
-          # NOTE: Keep the image below in sync with what we use in the Dockerfile
-          - image: gcr.io/project/google/cloud-sdk:alpine
-            auth:
-            #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
-              username: _json_key
-              password: $GOOGLE_AUTH
-
-            steps:
-            - run: echo ${GOOGLE_AUTH}
-            #    > ${HOME}/gcp-key.json
+    steps:
+      - checkout
+      - run: 
+          name: Dump Google Cloud Credentials to file
+          command: echo ${GOOGLE_AUTH} #> ${HOME}/gcp-key.json
+      #    > ${HOME}/gcp-key.json
