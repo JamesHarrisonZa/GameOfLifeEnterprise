@@ -45,4 +45,5 @@ jobs:
         password: $GOOGLE_AUTH 
     - steps:
        - run: echo ${GOOGLE_AUTH} 
+       - run: echo 42
       #    > ${HOME}/gcp-key.json
