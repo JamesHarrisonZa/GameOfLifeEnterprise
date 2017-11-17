@@ -44,8 +44,5 @@ jobs:
         username: _json_key
         password: $GOOGLE_AUTH 
     - steps:
-       # ...
-       - run:
-         name: Dump Google Cloud Credentials to file
-         command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
-       # ... 
+       - run: echo ${GOOGLE_AUTH} 
+      #    > ${HOME}/gcp-key.json
