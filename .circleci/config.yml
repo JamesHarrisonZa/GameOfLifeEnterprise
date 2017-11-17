@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  test:
+  build: #ToDo: rename to test, but require at least 1 build
     docker:
       # NOTE: Keep the image below in sync with what we use in the Dockerfile
       - image: circleci/node:8.9.1-browsers
