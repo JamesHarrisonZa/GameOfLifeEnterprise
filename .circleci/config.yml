@@ -33,6 +33,8 @@ jobs:
       # run tests!
       - run: yarn test-single
 
+      - run: docker --version
+
       # deployment
       #- deploy: 
       #    command: $DOCKER_HUB_TRIGGER
