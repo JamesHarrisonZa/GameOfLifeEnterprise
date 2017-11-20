@@ -103,13 +103,16 @@ workflows:
   version: 2
   test_build_deploy:
     jobs:
+
       - test
+
       - build:
           requires:
             - test
           filters:
             branches:
               only: master
+
       - deploy:
           requires:
             - build
