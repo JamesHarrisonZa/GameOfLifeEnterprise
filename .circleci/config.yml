@@ -42,6 +42,14 @@ jobs:
       #- deploy: 
       #    command: $DOCKER_HUB_TRIGGER
 
+      - run:
+          name: Building Docker Image
+          command: docker build -t gol . 
+
+      - run:
+          name: Other docker stuff
+          command: docker images
+
   deploy:
     docker: 
     - image: node:8.9.1-alpine
@@ -51,15 +59,10 @@ jobs:
     #     password: $GOOGLE_AUTH
 
     steps:
-      - checkout
 
-      - run:
-          name: Building Docker Image
-          command: docker build -t gol . 
-
-    #   - run: 
-    #       name: Dump Google Cloud Credentials to file
-    #       command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+      - run: 
+          name: Dump Google Cloud Credentials to file
+          command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
 
     #   - run:
     #       name: Install kubectl
