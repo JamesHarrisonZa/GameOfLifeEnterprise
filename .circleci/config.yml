@@ -34,32 +34,32 @@ jobs:
       - run: yarn test-single
 
       # deployment
-      - deploy: 
-          command: $DOCKER_HUB_TRIGGER
+      #- deploy: 
+      #    command: $DOCKER_HUB_TRIGGER
 
-#   deploy:
-#     docker: 
-#     - image: circleci/node:8.9.1-browsers  #gcr.io/myproject/myimage
-#       auth:
-#       #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
-#         username: _json_key
-#         password: $GOOGLE_AUTH
+  deploy:
+    docker: 
+    - image: circleci/8.9.1
+      auth:
+      #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
+        username: _json_key
+        password: $GOOGLE_AUTH
 
-#     steps:
-#       - checkout
-#       - run: 
-#           name: Dump Google Cloud Credentials to file
-#           command: echo ${GOOGLE_AUTH} #> ${HOME}/gcp-key.json
-#       #    > ${HOME}/gcp-key.json
+    steps:
+      - checkout
+      - run: 
+          name: Dump Google Cloud Credentials to file
+          command: echo ${GOOGLE_AUTH} #> ${HOME}/gcp-key.json
+      #    > ${HOME}/gcp-key.json
 
-# workflows:
-#   version: 2
-#   build_test_deploy:
-#     jobs:
-#       - build
-#       - deploy:
-#           requires:
-#             - build
-#           filters:
-#             branches:
-#               only: master
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
