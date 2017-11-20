@@ -1,12 +1,8 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   test:
     docker:
-      # NOTE: Keep the image below in sync with what we use in the Dockerfile
+      # NOTE: Keep the image below in sync with what we use in our App Dockerfile
       - image: circleci/node:8.9.1-browsers
         environment:
           CHROME_BIN: "/usr/bin/google-chrome"
@@ -16,10 +12,10 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache: # Download and cache dependencies
+      - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies- # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
 
       - run:
           name: Installing Dependancies
@@ -37,10 +33,6 @@ jobs:
       - run:
           name: Doing docker stuffs
           command: docker --version
-
-      # deployment
-      #- deploy: 
-      #    command: $DOCKER_HUB_TRIGGER
 
   build:
     working_directory: /app
