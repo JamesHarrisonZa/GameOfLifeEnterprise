@@ -103,7 +103,7 @@ workflows:
   version: 2
   test_build_deploy:
     jobs:
-      - test:
+      - test
       - build:
           requires:
             - test
