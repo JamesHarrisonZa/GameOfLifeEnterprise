@@ -40,10 +40,10 @@ jobs:
   deploy:
     docker: 
     - image: circleci/node:8.9.1
-      auth:
-      #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
-        username: _json_key
-        password: $GOOGLE_AUTH
+    #   auth:
+    #   #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
+    #     username: _json_key
+    #     password: $GOOGLE_AUTH
 
     steps:
       - checkout
