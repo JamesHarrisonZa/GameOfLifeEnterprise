@@ -85,28 +85,34 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push jamesharrisonza/gameoflifetypescript
 
-#   deploy:
-#     docker: 
-#     - image: node:8.9.1-alpine
-#     #   auth:
-#     #   #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
-#     #     username: _json_key
-#     #     password: $GOOGLE_AUTH
+  deploy:
+    docker: 
+    - image: node:8.9.1-alpine
+    #   auth:
+    #   #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
+    #     username: _json_key
+    #     password: $GOOGLE_AUTH
 
-#     steps:
+    steps:
 
-#       - run: 
-#           name: Dump Google Cloud Credentials to file
-#           command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+      - run: 
+          name: Dump Google Cloud Credentials to file
+          command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
 
 workflows:
   version: 2
   test_build_deploy:
     jobs:
-      - test
+
+      - test:
+
       - build:
           requires:
             - test
           filters:
             branches:
               only: master
+
+      - deploy:
+          requires:
+            - build
