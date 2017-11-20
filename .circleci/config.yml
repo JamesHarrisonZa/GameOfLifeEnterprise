@@ -52,7 +52,8 @@ jobs:
 
       - run:
           name: Install kubectl
-          command: apk add --update ca-certificates 
+          command: >- 
+                   apk add --update ca-certificates 
                    && apk add --update -t deps curl 
                    && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/usr/local/bin/kubectl 
                    && chmod +x /usr/local/bin/kubectl 
