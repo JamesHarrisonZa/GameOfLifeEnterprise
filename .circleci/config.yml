@@ -1,5 +1,6 @@
 version: 2
 jobs:
+
   test:
     docker:
       # NOTE: Keep the image below in sync with what we use in our App Dockerfile
@@ -45,11 +46,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --no-cache \
-              py-pip=9.0.0-r1
-            pip install \
-              docker-compose==1.12.0 \
-              awscli==1.11.76
+            apk add --no-cache
+            py-pip=9.0.0-r1
+            pip install
+            docker-compose==1.12.0
+            awscli==1.11.76
 
       - restore_cache:
           keys:
@@ -98,6 +99,20 @@ jobs:
       - run: 
           name: Dump Google Cloud Credentials to file
           command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+
+      - run: 
+          name: Installing kubectl
+          command: |
+            apk add --update ca-certificates
+            apk add --update -t deps curl 
+            curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/usr/local/bin/kubectl
+            chmod +x /usr/local/bin/kubectl
+            apk del --purge deps
+            rm /var/cache/apk/*
+
+      - run: 
+          name: Checking kubectl works
+          command: kubectl --help
 
 workflows:
   version: 2
