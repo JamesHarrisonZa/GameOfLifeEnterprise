@@ -115,8 +115,8 @@ jobs:
           command: | 
             cd /usr/local/bin/
             ls -l
-            cd kubectl
-            ls
+            #cd kubectl
+            #ls
             #cd /usr/local/bin/kubectl
             kubectl
 
