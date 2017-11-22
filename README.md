@@ -60,8 +60,10 @@ Should be running on http://localhost:42420/ afterwards
 * docker exec -it gol /bin/bash  
 
 ## Continous integration
-Running tests as code goes into the master branch.    
-On success: triggers Dockerhub to build a new Image.  
+Runs tests as code goes into the master branch.  
+On test success: Builds a new Docker image for my app with a tag of the last checkin SHA. Pushes the new image to Dockerhub.  
+On build success: Connect to my cluster and initiates a rolling update based off the new docker image and tag.  
+
 <a name="website">[<img src="https://lever-client-logos.s3.amazonaws.com/circle-logo-horizontal.png" width="400px" />](https://circleci.com/)</a> 
 
 ## Deployment and container orchestration
@@ -88,7 +90,6 @@ Cluster of 3 nodes living in Google's europe-west1 datacenter via
 <a name="website">[<img src="https://cloud.google.com/_static/2e380f3acd/images/cloud/gcp-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
 
 ## ToDo
-* Webhook that spin up initiates a rolling update when the dockerhub build succedes. Might need to change to use GCP DTR to store image. 
 * Copy css files to public folder, then git ignore public folder.
 * JS Minification  
 * Google analytics  
