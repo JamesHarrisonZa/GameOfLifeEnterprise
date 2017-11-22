@@ -109,8 +109,8 @@ jobs:
       - run: 
           name: Running kubectl commands
           command: | 
-            kubectl get pods
-            kubectl get svc
+            kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript 
+            kubectl rollout status deployment game-of-life
 
 workflows:
   version: 2
