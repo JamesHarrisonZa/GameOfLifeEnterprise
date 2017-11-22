@@ -86,16 +86,8 @@ jobs:
   deploy:
     docker: 
       - image: google/cloud-sdk:alpine #https://hub.docker.com/r/google/cloud-sdk/
-    #   auth:
-    #   #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
-    #     username: _json_key
-    #     password: $GOOGLE_AUTH
 
     steps:
-
-      - run: 
-          name: Dump Google Cloud Credentials to file
-          command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
 
       - run: 
           name: Installing kubectl
@@ -104,7 +96,13 @@ jobs:
             gcloud components install kubectl
 
       - run: 
-          name: Checking kubectl works
+          name: Authenticating with Google Cloud
+          command: |
+            echo ${GOOGLE_AUTH} >> ${HOME}/gcp-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+
+      - run: 
+          name: Connecting to the Google Cloud cluster
           command: | 
             gcloud container clusters get-credentials gol-42-cluster --zone europe-west1-b --project gameoflifetypescript
 
