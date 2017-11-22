@@ -111,8 +111,7 @@ jobs:
 
       - run: 
           name: Checking kubectl works
-          command: |
-            kubectl
+          command: kubectl
 
 workflows:
   version: 2
