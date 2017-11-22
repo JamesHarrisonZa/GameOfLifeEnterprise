@@ -106,11 +106,8 @@ jobs:
       - run: 
           name: Checking kubectl works
           command: | 
-            # cd /usr/local/bin
-            # pwd
-            # ls -l
-            gcloud --help
-            kubectl version
+            #gcloud --help
+            kubectl --help
 
 workflows:
   version: 2
