@@ -11,7 +11,8 @@
 }
 
 .row div.active {
-	background-color: turquoise;
+	/* background-color: turquoise; */
+	background-color: red;
 }
 
 .row div.inactive {
