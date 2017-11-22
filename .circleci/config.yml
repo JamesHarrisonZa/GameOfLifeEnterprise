@@ -85,7 +85,8 @@ jobs:
 
   deploy:
     docker: 
-    - image: node:8.9.1-alpine
+    #- image: node:8.9.1-alpine
+    - image: cwt114/alpine-gcloud
     #   auth:
     #   #Put the contents of keyfile.json into an environment variable for the build called GCR_CREDS, which is then passed in.
     #     username: _json_key
@@ -97,17 +98,17 @@ jobs:
           name: Dump Google Cloud Credentials to file
           command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
 
-      - run: 
-          name: Installing kubectl
-          pwd: /
-          command: |
-            cd /usr/local/bin/
-            apk add --update ca-certificates
-            apk add --update -t deps curl 
-            curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/usr/local/bin/kubectl
-            chmod +x /usr/local/bin/kubectl
-            apk del --purge deps
-            rm /var/cache/apk/*
+    #   - run: 
+    #       name: Installing kubectl
+    #       pwd: /
+    #       command: |
+    #         cd /usr/local/bin/
+    #         apk add --update ca-certificates
+    #         apk add --update -t deps curl 
+    #         curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/usr/local/bin/kubectl
+    #         chmod +x /usr/local/bin/kubectl
+    #         apk del --purge deps
+    #         rm /var/cache/apk/*
 
       - run: 
           name: Checking kubectl works
@@ -119,7 +120,7 @@ jobs:
             #cd kubectl
             #ls
             #cd /usr/local/bin/kubectl
-            /bin/bash kubectl
+            kubectl
 
 workflows:
   version: 2
