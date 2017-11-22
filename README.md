@@ -1,6 +1,6 @@
 # GameOfLifeTypeScript
 Compliments [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
-But a production ready version with all the focus on tooling and a continous delivery pipeline.  
+But a production ready version with all the focus on tooling and a continuous delivery pipeline.  
 
 # Technologies used
 ## Source Code  
