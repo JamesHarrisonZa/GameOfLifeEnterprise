@@ -112,6 +112,7 @@ jobs:
       - run: 
           name: Checking kubectl works
           pwd: /
+          shell: /bin/bash
           command: | 
             cd /usr/local/bin/
             ls -l
