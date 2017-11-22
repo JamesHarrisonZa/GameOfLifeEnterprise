@@ -64,7 +64,7 @@ jobs:
       - run:
           name: Build application Docker image
           command: |
-            docker build --cache-from=app -t jamesharrisonza/gameoflifetypescript:dsa .
+            docker build --cache-from=app -t jamesharrisonza/gameoflifetypescript:${CIRCLE_SHA1} .
 
       - run:
           name: Save Docker image layer cache
@@ -81,7 +81,7 @@ jobs:
           name: Push Docker image to Dockerhub
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker push jamesharrisonza/gameoflifetypescript
+            docker push jamesharrisonza/gameoflifetypescript:${CIRCLE_SHA1}
 
   deploy:
     docker: 
@@ -89,45 +89,43 @@ jobs:
 
     steps:
 
-      # - run: 
-      #     name: Installing kubectl
-      #     pwd: /
-      #     command: |
-      #       gcloud components install kubectl
-
-      # - run: 
-      #     name: Authenticating with Google Cloud
-      #     command: |
-      #       echo ${GOOGLE_AUTH} >> ${HOME}/gcp-key.json
-      #       gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
-
-      # - run: 
-      #     name: Connecting to the Google Cloud cluster
-      #     command: | 
-      #       gcloud container clusters get-credentials ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} --project ${GOOGLE_PROJECT_ID}
+      - run: 
+          name: Installing kubectl
+          pwd: /
+          command: |
+            gcloud components install kubectl
 
       - run: 
-          name: Running kubectl commands
+          name: Authenticating with Google Cloud
+          command: |
+            echo ${GOOGLE_AUTH} >> ${HOME}/gcp-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+
+      - run: 
+          name: Connecting to the Google Cloud cluster
           command: | 
-              echo ${CIRCLE_SHA1}
-            # kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript:dsa
-            # kubectl rollout status deployment game-of-life
+            gcloud container clusters get-credentials ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} --project ${GOOGLE_PROJECT_ID}
+
+      - run: 
+          name: Rolling Update
+          command: | 
+            kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript:${CIRCLE_SHA1}
+            kubectl rollout status deployment game-of-life
 
 workflows:
   version: 2
   test_build_deploy:
     jobs:
 
-      - deploy
-    #   - test
+      - test
 
-    #   - build:
-    #       requires:
-    #         - test
-    #       filters:
-    #         branches:
-    #           only: master
+      - build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
 
-    #   - deploy:
-    #       requires:
-    #         - build
+      - deploy:
+          requires:
+            - build
