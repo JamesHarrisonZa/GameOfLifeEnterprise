@@ -12,7 +12,7 @@
 
 .row div.active {
 	/* background-color: turquoise; */
-	background-color: greenyellow;
+	background-color: rgb(248, 6, 216);
 }
 
 .row div.inactive {
