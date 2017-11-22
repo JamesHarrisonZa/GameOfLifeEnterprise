@@ -106,6 +106,12 @@ jobs:
           command: | 
             gcloud container clusters get-credentials gol-42-cluster --zone europe-west1-b --project gameoflifetypescript
 
+      - run: 
+          name: Running kubectl commands
+          command: | 
+            kubectl get pods
+            kubectl get svc
+
 workflows:
   version: 2
   test_build_deploy:
