@@ -113,12 +113,8 @@ jobs:
           name: Checking kubectl works
           pwd: /
           command: | 
-            cd usr
-            ls
-            cd local
-            ls
-            cd bin
-            ls
+            cd /usr/local/bin/
+            ls -l
             cd kubectl
             ls
             #cd /usr/local/bin/kubectl
