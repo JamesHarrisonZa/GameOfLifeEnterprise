@@ -88,6 +88,7 @@ Cluster of 3 nodes living in Google's europe-west1 datacenter via
 <a name="website">[<img src="https://cloud.google.com/_static/2e380f3acd/images/cloud/gcp-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
 
 ## ToDo
-* Build step to copy css files to public folder, then git ignore public folder. (Up next)  
+* Build step to copy css files to public folder, then git ignore public folder. (Up next)
+* Investigate new Chrome module loading support in the browser which may let me remove commonjs and browserfy.    
 * JS Minification (Thinking about it) 
 * Google analytics (Maybe)  
