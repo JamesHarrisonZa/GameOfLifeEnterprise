@@ -101,6 +101,7 @@ jobs:
           name: Installing kubectl
           pwd: /
           command: |
+            cd /usr/local/bin/
             apk add --update ca-certificates
             apk add --update -t deps curl 
             curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/usr/local/bin/kubectl
