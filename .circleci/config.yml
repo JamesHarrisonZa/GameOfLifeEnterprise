@@ -99,11 +99,12 @@ jobs:
 
       - run: 
           name: Installing kubectl
+          pwd: /
           command: |
             apk add --update ca-certificates
             apk add --update -t deps curl 
             curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/usr/local/bin/kubectl
-            #chmod +x /usr/local/bin/kubectl
+            chmod +x /usr/local/bin/kubectl
             apk del --purge deps
             rm /var/cache/apk/*
 
@@ -112,7 +113,7 @@ jobs:
           command: |
             pwd
             ls
-            #kubectl --help
+            kubectl --help
 
 workflows:
   version: 2
