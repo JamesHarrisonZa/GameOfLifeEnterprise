@@ -1,6 +1,6 @@
 # GameOfLifeTypeScript
-Based off [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
-But with all the focus on tooling and production workflows   
+Compliments [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
+But a production ready version with all the focus on tooling and a continous delivery pipeline.  
 
 # Technologies used
 ## Source Code  
@@ -59,10 +59,8 @@ Should be running on http://localhost:42420/ afterwards
 * docker run -d --rm --name gol -p 42420:42420 gol  
 * docker exec -it gol /bin/bash  
 
-## Continous integration
-Runs tests as code goes into the master branch.  
-On test success: Builds a new Docker image for my app with a tag of the last checkin SHA. Pushes the new image to Dockerhub.  
-On build success: Connect to my cluster and initiates a rolling update based off the new docker image and tag.  
+## Continuous delivery
+Runs tests as code is committed to the master branch. On test success: Builds a new Docker image for my app tagged with the last checkin SHA. Pushes the new image to my Dockerhub repo. On build success: Connect to my cluster and initiates a rolling update based off the new docker image and tag.  
 
 <a name="website">[<img src="https://lever-client-logos.s3.amazonaws.com/circle-logo-horizontal.png" width="400px" />](https://circleci.com/)</a> 
 
@@ -90,6 +88,6 @@ Cluster of 3 nodes living in Google's europe-west1 datacenter via
 <a name="website">[<img src="https://cloud.google.com/_static/2e380f3acd/images/cloud/gcp-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
 
 ## ToDo
-* Copy css files to public folder, then git ignore public folder.
-* JS Minification  
-* Google analytics  
+* Build step to copy css files to public folder, then git ignore public folder. (Up next)  
+* JS Minification (Thinking about it) 
+* Google analytics (Maybe)  
