@@ -118,7 +118,8 @@ jobs:
             # cd /usr/local/bin
             # pwd
             # ls -l
-            kubectl 
+            #kubectl 
+            gcloud --help
 
 workflows:
   version: 2
