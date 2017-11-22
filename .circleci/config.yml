@@ -112,9 +112,7 @@ jobs:
       - run: 
           name: Checking kubectl works
           command: |
-            pwd
-            ls
-            kubectl --help
+            kubectl
 
 workflows:
   version: 2
