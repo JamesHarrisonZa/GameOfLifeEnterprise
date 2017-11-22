@@ -6,7 +6,7 @@ metadata:
   labels:
     app: game-of-life
 spec:
-  replicas: 1 # Number of pods we want
+  replicas: 1 # Number of pods we want. Change this to scale application.
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
       - name: game-of-life
-        image: jamesharrisonza/gameoflifetypescript
+        image: jamesharrisonza/gameoflifetypescript # Add :image tag if needed
         ports:
         - containerPort: 42420
