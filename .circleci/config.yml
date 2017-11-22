@@ -111,7 +111,11 @@ jobs:
 
       - run: 
           name: Checking kubectl works
-          command: kubectl
+          pwd: /
+          command: | 
+            cd /usr/local/bin/kubectl
+            ls
+            kubectl
 
 workflows:
   version: 2
