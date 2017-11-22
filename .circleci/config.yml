@@ -115,10 +115,10 @@ jobs:
           pwd: /
           #shell: /bin/bash
           command: | 
-            cd /usr/local/bin
-            pwd
-            ls -l
-            #kubectl
+            # cd /usr/local/bin
+            # pwd
+            # ls -l
+            kubectl 
 
 workflows:
   version: 2
