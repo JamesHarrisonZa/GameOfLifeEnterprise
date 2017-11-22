@@ -117,15 +117,16 @@ workflows:
   test_build_deploy:
     jobs:
 
-      - test
+      - deploy
+    #   - test
 
-      - build:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+    #   - build:
+    #       requires:
+    #         - test
+    #       filters:
+    #         branches:
+    #           only: master
 
-      - deploy:
-          requires:
-            - build
+    #   - deploy:
+    #       requires:
+    #         - build
