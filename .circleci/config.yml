@@ -115,7 +115,7 @@ jobs:
           pwd: /
           #shell: /bin/bash
           command: | 
-            #cd /usr/local/bin/
+            cd /usr/local
             pwd
             ls -l
             #cd kubectl
