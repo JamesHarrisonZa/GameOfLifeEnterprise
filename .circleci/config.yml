@@ -104,7 +104,7 @@ jobs:
       - run: 
           name: Connecting to the Google Cloud cluster
           command: | 
-            gcloud container clusters get-credentials gol-42-cluster --zone europe-west1-b --project gameoflifetypescript
+            gcloud container clusters get-credentials ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} --project ${GOOGLE_PROJECT_ID}
 
       - run: 
           name: Running kubectl commands
