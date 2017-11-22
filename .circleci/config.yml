@@ -106,8 +106,7 @@ jobs:
       - run: 
           name: Checking kubectl works
           command: | 
-            gcloud --help
-            kubectl --help
+            gcloud container clusters get-credentials gol-42-cluster --zone europe-west1-b --project gameoflifetypescript
 
 workflows:
   version: 2
