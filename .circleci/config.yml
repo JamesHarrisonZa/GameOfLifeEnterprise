@@ -110,9 +110,9 @@ jobs:
       - run: 
           name: Checking kubectl works
           command: |
-            echo $PATH
-            echo pwd
-            kubectl --help
+            pwd
+            ls
+            #kubectl --help
 
 workflows:
   version: 2
