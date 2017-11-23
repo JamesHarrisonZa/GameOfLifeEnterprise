@@ -2,6 +2,8 @@
 Compliments [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
 But a production ready version with all the focus on tooling and a continuous delivery pipeline.  
 
+[![CircleCI](https://circleci.com/gh/JamesHarrisonZa/GameOfLifeTypeScript/tree/master.svg?style=svg)](https://circleci.com/gh/JamesHarrisonZa/GameOfLifeTypeScript/tree/master)
+
 # Technologies used
 ## Source Code  
 JavaScript type safety and compile checking using:   
