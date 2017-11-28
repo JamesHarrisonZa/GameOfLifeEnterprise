@@ -59,7 +59,6 @@ Using image and container tag/name: gol
 Should be running on http://localhost:42420/ afterwards
 * docker build -t gol .  
 * docker run -d --rm --name gol -p 42420:42420 gol  
-* docker exec -it gol /bin/bash  
 
 ## Continuous delivery
 Runs tests as code is committed to the master branch. On test success: Builds a new Docker image for my app tagged with the last checkin SHA. Pushes the new image to my Dockerhub repo. On build success: Connect to my cluster and initiates a rolling update based off the new docker image and tag.  
@@ -72,14 +71,14 @@ Runs containers from my latest Docker image. Loadbalancer service with a static 
 
 ### commands
 
-With kubectl installed. Connect to the cluster with command provided by host provider. cd to the kubernetes folder.
+With kubectl installed. Connect to the cluster with command provided by host provider. cd to the .kubernetes folder.
 
-* kubectl create -f Deployment.yml
-* kubectl apply -f Deployment.yml --record
+* kubectl create -f deployment.yml
+* kubectl apply -f deployment.yml --record
 * kubectl rollout status deployment game-of-life
 * kubectl delete Deployment game-of-life
-* kubectl create -f LoadBalancerService.yml
-* kubectl apply -f LoadBalancerService.yml
+* kubectl create -f loadBalancerService.yml
+* kubectl apply -f loadBalancerService.yml
 * kubectl delete svc game-of-life
 * kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript 
 
