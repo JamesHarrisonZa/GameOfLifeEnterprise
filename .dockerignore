@@ -1,2 +1,17 @@
-node_modules
+#My Folders
+.circleci/**/*
+.kubernetes/**/*
+.vscode/**/*
+coverage/**/*
+dist/**/*
+
+#Packages
+node_modules/**/*
+
+#Root files
 npm-debug.log
+.gitignore
+jasmine.json
+karma.conf.js
+README.md
+tslint.json

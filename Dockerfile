@@ -4,19 +4,13 @@ LABEL maintainer = "james.harrison.za@gmail.com"
 
 WORKDIR /usr/src/app
 
+#Copy App files
+COPY . .
+
 # Packages
-COPY package.json .
 RUN yarn
 
-# Required files
-COPY ./public ./public/
-COPY ./index.html .
-COPY ./server.js .
-COPY ./favicon.ico .
-
 #Build bundle.js
-COPY tsconfig.json .
-COPY ./src ./src/
 RUN yarn run build
 RUN yarn run browserify
 	
