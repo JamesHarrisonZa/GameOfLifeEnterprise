@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 #Copy App files
 COPY . .
 
-# Build Packages
+# Packages & dev dependancies
 RUN yarn
 
 #Build bundle.js
@@ -19,7 +19,9 @@ FROM node:8.9.1-alpine
 COPY . .
 COPY --from=builder /usr/src/app/dist .
 
-ENV NODE_ENV pr
+# Packages production only
+ENV NODE_ENV production
+RUN yarn
 
 EXPOSE 42420
 
