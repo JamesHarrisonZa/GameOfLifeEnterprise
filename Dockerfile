@@ -14,7 +14,7 @@ RUN yarn
 RUN yarn run build
 RUN yarn run browserify
 
-FROM node:8.9.1-alpine
+FROM node:8.9.1-alpine as release
 
 COPY . .
 COPY --from=builder /usr/src/app/dist .
