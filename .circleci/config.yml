@@ -12,8 +12,6 @@ jobs:
 
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 17.05.0-ce #required for multi stage builds
 
       - restore_cache:
           keys:
@@ -33,17 +31,14 @@ jobs:
           name: Running Tests
           command: yarn test-single
 
-      - run:
-          name: Doing docker stuffs
-          command: docker --version
-
   build:
     working_directory: /app
     docker:
       - image: docker:17.05.0-ce-git #https://hub.docker.com/r/library/docker/tags/
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 17.05.0-ce #required for multi stage builds
 
       - run:
           name: Install dependencies
