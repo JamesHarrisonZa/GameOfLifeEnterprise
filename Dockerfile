@@ -2,9 +2,9 @@ FROM node:8.9.1-alpine as builder
 #NOTE: Keep image used above in sync with what our CI runs tests in: \.circleci\config.yml
 LABEL maintainer = "james.harrison.za@gmail.com"
 
-WORKDIR /usr/src/app
+WORKDIR /MyApplication
 
-#Copy App files
+#Copy App and Build files
 COPY . .
 
 # Packages & dev dependancies
@@ -14,10 +14,18 @@ RUN yarn
 RUN yarn run build
 RUN yarn run browserify
 
-FROM node:8.9.1-alpine as release
+# Release Image
+FROM node:8.9.1-alpine
 
-COPY . .
-COPY --from=builder /usr/src/app/dist .
+WORKDIR /MyApplication
+
+# Copy release files only 
+COPY --from=builder /MyApplication/public/bundle.js ./public/
+COPY ./public ./public/
+COPY ./index.html .
+COPY ./favicon.ico .
+COPY ./package.json .
+COPY ./server.js .
 
 # Packages production only
 ENV NODE_ENV production
