@@ -59,6 +59,7 @@ Using image and container tag/name: gol
 Should be running on http://localhost:42420/ afterwards
 * docker build -t gol .  
 * docker run -d --rm --name gol -p 42420:42420 gol  
+* docker run -it gol /bin/sh
 
 ## Continuous delivery
 Runs tests as code is committed to the master branch. On test success: Builds a new Docker image for my app tagged with the last checkin SHA. Pushes the new image to my Dockerhub repo. On build success: Connect to my cluster and initiates a rolling update based off the new docker image and tag.  
