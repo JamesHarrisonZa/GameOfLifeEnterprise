@@ -2,7 +2,7 @@
 Compliments [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
 But a production ready version with all the focus on tooling and a continuous delivery pipeline.  
 
-[![CircleCI](https://circleci.com/gh/JamesHarrisonZa/GameOfLifeTypeScript/tree/master.svg?style=svg)](https://circleci.com/gh/JamesHarrisonZa/GameOfLifeTypeScript/tree/master)
+[![CircleCI](https://circleci.com/gh/JamesHarrisonZa/GameOfLifeProduction/tree/master.svg?style=svg)](https://circleci.com/gh/JamesHarrisonZa/GameOfLifeProduction/tree/master)
 
 # Technologies used
 ## Source Code  
@@ -52,7 +52,7 @@ On operating system
 <a name="website">[<img src="https://alpinelinux.org/alpinelinux-logo.svg" width="400px" />](https://www.alpinelinux.org/about/)</a> 
 
 Image stored in Dockerhub  
-https://hub.docker.com/r/jamesharrisonza/gameoflifetypescript/
+https://hub.docker.com/r/jamesharrisonza/gameoflifeproduction/
 
 ### Commands  
 Using image and container tag/name: gol  
