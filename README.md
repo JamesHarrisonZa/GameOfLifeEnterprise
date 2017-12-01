@@ -1,4 +1,4 @@
-# GameOfLifeTypeScript
+# GameOfLifeProduction
 Compliments [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
 But a production ready version with all the focus on tooling and a continuous delivery pipeline.  
 
@@ -81,7 +81,7 @@ With kubectl installed. Connect to the cluster with command provided by host pro
 * kubectl create -f loadBalancerService.yml
 * kubectl apply -f loadBalancerService.yml
 * kubectl delete svc game-of-life
-* kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifetypescript 
+* kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifeproduction:ReplaceWithTag  
 
 ## Hosting
 

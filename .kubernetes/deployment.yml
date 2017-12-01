@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
       - name: game-of-life
-        image: jamesharrisonza/gameoflifetypescript # Add :image tag if needed
+        image: jamesharrisonza/gameoflifeproduction # Add :image tag if needed
         ports:
         - containerPort: 42420
