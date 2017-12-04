@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 
 // Constants
-const PORT = 42420;
+const PORT = process.env.PORT || 42420; //Env variable set by hosting enviroment
 const HOST = '0.0.0.0';
 
 // App
