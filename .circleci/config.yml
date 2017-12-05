@@ -110,11 +110,11 @@ jobs:
             kubectl rollout status deployment game-of-life
 
   deploy-heroku:
-    heroku:
-      appname: GameOfLifeProduction
-
     docker: 
       - image:node:8.9.1-alpine
+
+    heroku:
+      appname: GameOfLifeProduction
 
     steps:
 
