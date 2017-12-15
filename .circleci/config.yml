@@ -80,7 +80,7 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
 
-  deploy-google-cloud-platform:
+  deploy:
     docker: 
       - image: google/cloud-sdk:alpine #https://hub.docker.com/r/google/cloud-sdk/
 
@@ -109,26 +109,6 @@ jobs:
             kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
             kubectl rollout status deployment game-of-life
 
-  deploy-heroku:
-    docker: 
-      - image:node:8.9.1-alpine
-
-    # heroku:
-    #   appname: GameOfLifeProduction
-
-    steps:
-
-      - run: 
-          name: Installing heroku-cli
-          command: |
-            npm install -g heroku-cli
-
-      - run: 
-          name: Logging in
-          command: |
-            heroku container:login
-
-
 workflows:
   version: 2
   test_build_deploy:
@@ -136,18 +116,13 @@ workflows:
 
       - test
 
-      # - build:
-      #     requires:
-      #       - test
-      #     filters:
-      #       branches:
-      #         only: master
-
-      # - deploy-google-cloud-platform:
-      #     requires:
-      #       - build
-
-      - deploy-heroku:
+      - build:
           requires:
             - test
-            #- build
+          filters:
+            branches:
+              only: master
+
+      - deploy:
+          requires:
+            - build
