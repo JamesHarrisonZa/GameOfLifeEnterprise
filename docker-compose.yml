@@ -5,6 +5,5 @@ services:
     image: gol
     build: .
     container_name: gol
-    #command: npm run start
     ports:
      - "42420:42420"
