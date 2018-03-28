@@ -4,7 +4,7 @@ jobs:
   test:
     docker:
       # NOTE: Keep the image below in sync with what we use in our App Dockerfile
-      - image: circleci/node:8.9.1-browsers
+      - image: circleci/node:9.9.0-browsers
         environment:
           CHROME_BIN: "/usr/bin/google-chrome"
 
