@@ -7,23 +7,23 @@
     "build": "tsc",
     "browserify": "browserify -r ./dist/app.js:App -o ./public/bundle.js",
     "test": "karma start",
-	"test-single": "karma start --single-run",
-	"start": "node server.js"
+    "test-single": "karma start --single-run",
+    "start": "node server.js"
   },
   "dependencies": {
-	"express": "^4.16.2",
-	"browserify": "^14.4.0"
+    "browserify": "^14.4.0",
+    "express": "^4.16.3"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.5.54",
+    "@types/jasmine": "^2.8.6",
     "istanbul": "^0.4.5",
-    "jasmine": "^2.7.0",
+    "jasmine": "^2.99.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
-    "karma-typescript": "^3.0.5",
-    "tslint": "^5.6.0",
-    "tslint-immutable": "^4.0.2",
-    "typescript": "^2.4.2"
+    "karma-typescript": "^3.0.12",
+    "tslint": "^5.9.1",
+    "tslint-immutable": "^4.5.3",
+    "typescript": "^2.8.1"
   }
 }
