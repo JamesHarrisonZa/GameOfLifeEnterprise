@@ -25,6 +25,7 @@ COPY ./public ./public/
 COPY ./index.html .
 COPY ./favicon.ico .
 COPY ./package.json .
+COPY ./package-lock.json .
 COPY ./server.js .
 
 # Packages production only
