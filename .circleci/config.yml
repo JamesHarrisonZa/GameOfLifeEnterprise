@@ -80,34 +80,35 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
 
-  deploy:
-    docker: 
-      - image: google/cloud-sdk:alpine #https://hub.docker.com/r/google/cloud-sdk/
+# NOTE: Disabling google cloud deploy. Free credits ran out ;(
+#   deploy:
+#     docker: 
+#       - image: google/cloud-sdk:alpine #https://hub.docker.com/r/google/cloud-sdk/
 
-    steps:
+#     steps:
 
-      - run: 
-          name: Installing kubectl
-          pwd: /
-          command: |
-            gcloud components install kubectl
+#       - run: 
+#           name: Installing kubectl
+#           pwd: /
+#           command: |
+#             gcloud components install kubectl
 
-      - run: 
-          name: Authenticating with Google Cloud
-          command: |
-            echo ${GOOGLE_AUTH} >> ${HOME}/gcp-key.json
-            gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+#       - run: 
+#           name: Authenticating with Google Cloud
+#           command: |
+#             echo ${GOOGLE_AUTH} >> ${HOME}/gcp-key.json
+#             gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
 
-      - run: 
-          name: Connecting to the Google Cloud cluster
-          command: | 
-            gcloud container clusters get-credentials ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} --project ${GOOGLE_PROJECT_ID}
+#       - run: 
+#           name: Connecting to the Google Cloud cluster
+#           command: | 
+#             gcloud container clusters get-credentials ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} --project ${GOOGLE_PROJECT_ID}
 
-      - run: 
-          name: Rolling Update
-          command: | 
-            kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
-            kubectl rollout status deployment game-of-life
+#       - run: 
+#           name: Rolling Update
+#           command: | 
+#             kubectl set image deployments/game-of-life game-of-life=jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
+#             kubectl rollout status deployment game-of-life
 
 workflows:
   version: 2
@@ -123,6 +124,6 @@ workflows:
             branches:
               only: master
 
-      - deploy:
-          requires:
-            - build
+    #   - deploy:
+    #       requires:
+    #         - build
