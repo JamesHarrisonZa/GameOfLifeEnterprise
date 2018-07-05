@@ -80,6 +80,26 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
 
+      - run:
+          name: Log in to Heroku DTR
+          command: |
+            docker login --username=${HEROKU_LOGIN} --password=${HEROKU_API_KEY} registry.heroku.com
+
+      - run:
+          name: Tag image for Heroku DTR
+          command: |
+            docker tag jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1} registry.heroku.com/${HEROKU_APP_NAME}/web
+
+      - run:
+          name: Push image to Heroku DTR
+          command: |
+            docker push registry.heroku.com/${HEROKU_APP_NAME}/web:latest
+
+      - run:
+          name: Release new containers
+          command: |
+            docker run --rm -e HEROKU_API_KEY=${HEROKU_API_KEY} wingrunr21/alpine-heroku-cli container:release --app ${HEROKU_APP_NAME} web
+
 # NOTE: Disabling google cloud deploy. Free credits ran out ;(
 #   deploy:
 #     docker: 
@@ -124,6 +144,6 @@ workflows:
             branches:
               only: master
 
-    #   - deploy:
-    #       requires:
-    #         - build
+      - deploy:
+          requires:
+            - build
