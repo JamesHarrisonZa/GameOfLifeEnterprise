@@ -1,4 +1,4 @@
-FROM node:9.9.0-alpine as builder
+FROM node:10.5.0-alpine as builder
 #NOTE: Keep image used above in sync with what our CI runs tests in: \.circleci\config.yml
 LABEL maintainer = "james.harrison.za@gmail.com"
 
@@ -15,7 +15,7 @@ RUN yarn run build
 RUN yarn run browserify
 
 # Release Image
-FROM node:9.9.0-alpine
+FROM node:10.5.0-alpine
 
 WORKDIR /MyApplication
 
