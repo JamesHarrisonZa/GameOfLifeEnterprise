@@ -34,11 +34,11 @@ jobs:
   build:
     working_directory: /app
     docker:
-      - image: docker:17.05.0-ce-git #https://hub.docker.com/r/library/docker/tags/
+      - image: docker:18.03.1-ce-git #https://hub.docker.com/r/library/docker/tags/
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 17.05.0-ce #required for multi stage builds
+    #   - setup_remote_docker:
+    #       version: 17.05.0-ce #required for multi stage builds
 
       - run:
           name: Install dependencies
@@ -80,10 +80,20 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
 
+  deploy:
+    docker:
+      - image: docker:18.03.1-ce-git #https://hub.docker.com/r/library/docker/tags/
+    steps:
+
       - run:
           name: Log in to Heroku DTR
           command: |
             docker login --username=${HEROKU_LOGIN} --password=${HEROKU_API_KEY} registry.heroku.com
+
+      - run:
+          name: Pull built image from Dockerhub
+          command: |
+            docker pull jamesharrisonza/gameoflifeproduction:${CIRCLE_SHA1}
 
       - run:
           name: Tag image for Heroku DTR
