@@ -70,7 +70,7 @@ Runs tests as code is committed to the master branch. On test success: Builds a 
 
 <a name="website">[<img src="https://lever-client-logos.s3.amazonaws.com/circle-logo-horizontal.png" width="400px" />](https://circleci.com/)</a> 
 
-## Deployment and container orchestration
+<!-- ## Deployment and container orchestration
 Runs containers from my latest Docker image. Loadbalancer service with a static IP. Replication Controller that maintains a healthy desired state of multiple running applications. Performs rolling updates.  
 <a name="website">[<img src="http://kompose.io/img/kubernetes_full.png" width="400px" />](https://kubernetes.io/)</a> 
 
@@ -91,10 +91,22 @@ With kubectl installed. Connect to the cluster with command provided by host pro
 
 Cluster of 3 nodes living in Google's europe-west1 datacenter via
 
-<a name="website">[<img src="https://cloud.google.com/_static/7a342985d6/images/cloud/cloud-logo.svg" width="600px" />](https://cloud.google.com/)</a> 
+<a name="website">[<img src="https://cloud.google.com/_static/7a342985d6/images/cloud/cloud-logo.svg" width="600px" />](https://cloud.google.com/)</a>  -->
+
+## Hosting
+
+This project was previously hosted on Google's Cloud Platform and was using Kubernetes to orchestrate the containers.  
+My free credits ran out but you can see the commands commented out in this Readme and the CircleCI config.  
+
+Currently the Docker containers are spun up and hosted on  
+Heroku Cloud Application Platform  
+
+<a name="website">[<img src="https://cdn.worldvectorlogo.com/logos/heroku-1.svg" width="400px" />](https://www.heroku.com/)</a> 
+
+Which has a great free tier for project apps.   
 
 ## ToDo
-* Build step to copy css files to public folder, then git ignore public folder. (Up next)
-* Investigate new Chrome module loading support in the browser which may let me remove commonjs and browserfy.    
+* Build step to copy css files to public folder, then git ignore public folder.
+* Investigate new Chrome module loading support in the browser which will let me remove commonjs and browserfy.    
 * JS Minification (Thinking about it) 
 * Google analytics (Maybe)  
