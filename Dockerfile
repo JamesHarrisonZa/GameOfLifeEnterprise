@@ -8,11 +8,11 @@ WORKDIR /MyApplication
 COPY . .
 
 # Packages & dev dependancies
-RUN yarn
+RUN npm ci
 
 #Build bundle.js
-RUN yarn run build
-RUN yarn run browserify
+RUN npm run build
+RUN npm run browserify
 
 # Release Image
 FROM node:10.5.0-alpine
@@ -30,7 +30,7 @@ COPY ./server.js .
 
 # Packages production only
 ENV NODE_ENV production
-RUN yarn
+RUN npm ci
 
 EXPOSE 42420
 
