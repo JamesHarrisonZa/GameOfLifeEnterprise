@@ -4,7 +4,7 @@ import { Grid } from './grid';
 
 export class App {
 
-	public Grid: Grid;
+	public readonly Grid: Grid;
 
 	constructor(window: Window) {
 
