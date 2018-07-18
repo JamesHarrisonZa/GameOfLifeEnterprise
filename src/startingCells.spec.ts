@@ -7,8 +7,6 @@ describe('StartingCells', () => {
 
 	describe('when created', () => {
 
-		//const startingCells = new StartingCells(_windowHeight, _windowWidth);
-
 		it('should have a relative CellsHeight', () => {
 			const sut = new StartingCells(_windowHeight, _windowWidth);
 			const actual = sut.CellsHeight;
