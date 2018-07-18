@@ -2,23 +2,64 @@ import { StartingCells } from './startingCells';
 
 describe('StartingCells', () => {
 
+	const _windowHeight = 1080;
+	const _windowWidth = 1920;
+
 	describe('when created', () => {
 
-		const startingCells = new StartingCells(1080, 1920);
+		//const startingCells = new StartingCells(_windowHeight, _windowWidth);
 
-		it('should have a CellsHeight', () => expect(startingCells.CellsHeight).toBe(106));
+		it('should have a relative CellsHeight', () => {
+			const sut = new StartingCells(_windowHeight, _windowWidth);
+			const actual = sut.CellsHeight;
+			const expected = 106;
+			expect(actual).toBe(expected);
+		});
 
-		it('should have a CellsWidth', () => expect(startingCells.CellsWidth).toBe(188));
+		it('should have a relative CellsWidth', () => {
+			const sut = new StartingCells(_windowHeight, _windowWidth);
+			const actual = sut.CellsWidth;
+			const expected = 188;
+			expect(actual).toBe(expected);
+		});
 
-		it('should have Cells', () => expect(startingCells.Cells).toBeDefined());
+		it('should have Cells', () => {
+			const sut = new StartingCells(_windowHeight, _windowWidth);
+			expect(sut.Cells).toBeDefined();
+		});
 
 		describe('Cells', () => {
 
-			it('should have matching height', () => expect(startingCells.Cells.length).toBe(106));
+			it('should have matching height', () => {
+				const sut = new StartingCells(_windowHeight, _windowWidth);
+				const actual = sut.Cells.length;
+				const expected = 106;
+				expect(actual).toBe(expected);
+			});
 
-			it('should have matching width', () => expect(startingCells.Cells[0].length).toBe(188));
+			it('should have matching width', () => {
+				const sut = new StartingCells(_windowHeight, _windowWidth);
+				const actual = sut.Cells[0].length;
+				const expected = 188;
+				expect(actual).toBe(expected);
+			});
 
-			//ToDo: should have mixture of ones and zeros
+			describe('should have mixture of', () => {
+
+				it('ones', () => {
+					const sut = new StartingCells(_windowHeight, _windowWidth);
+					const actual = sut.Cells[0].some((cellValue) => cellValue === 1); //very very rare case of failure due to randomness
+					const expected = true;
+					expect(actual).toBe(expected);
+				});
+
+				it('zeros', () => {
+					const sut = new StartingCells(_windowHeight, _windowWidth);
+					const actual = sut.Cells[0].some((cellValue) => cellValue === 0); //very very rare case of failure due to randomness
+					const expected = true;
+					expect(actual).toBe(expected);
+				});
+			});
 		});
 	});
 });
