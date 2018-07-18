@@ -2,8 +2,6 @@ import { GameOfLife } from './gameOfLife';
 
 describe('GameOfLife', () => {
 
-	const gameOfLife = new GameOfLife();
-
 	describe('Given a 3x3 grid', () => {
 
 		describe('with all dead cells', () => {
@@ -17,14 +15,15 @@ describe('GameOfLife', () => {
 
 			it('the next generation should remain all dead', () => {
 
-				const expectedResult =
+				const sut = new GameOfLife();
+				const actual = sut.getNextGeneration(startingCells);
+				const expected =
 					[
 						[0, 0, 0],
 						[0, 0, 0],
 						[0, 0, 0]
 					];
-				const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-				expect(nextGeneration).toEqual(expectedResult);
+				expect(actual).toEqual(expected);
 			});
 		});
 
@@ -39,14 +38,15 @@ describe('GameOfLife', () => {
 
 			it('the next generation should kill the lonely cell :(', () => {
 
-				const expectedResult =
+				const sut = new GameOfLife();
+				const actual = sut.getNextGeneration(startingCells);
+				const expected =
 					[
 						[0, 0, 0],
 						[0, 0, 0],
 						[0, 0, 0]
 					];
-				const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-				expect(nextGeneration).toEqual(expectedResult);
+				expect(actual).toEqual(expected);
 			});
 		});
 
@@ -61,14 +61,15 @@ describe('GameOfLife', () => {
 
 			it('the next generation should bring two cells to life', () => {
 
-				const expectedResult =
+				const sut = new GameOfLife();
+				const actual = sut.getNextGeneration(startingCells);
+				const expected =
 					[
 						[0, 1, 0],
 						[0, 1, 0],
 						[0, 1, 0]
 					];
-				const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-				expect(nextGeneration).toEqual(expectedResult);
+				expect(actual).toEqual(expected);
 			});
 		});
 
@@ -83,14 +84,15 @@ describe('GameOfLife', () => {
 
 			it('the next generation should keep that cell alive', () => {
 
-				const expectedResult =
+				const sut = new GameOfLife();
+				const actual = sut.getNextGeneration(startingCells);
+				const expected =
 					[
 						[0, 1, 0],
 						[0, 1, 0],
 						[0, 0, 0]
 					];
-				const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-				expect(nextGeneration).toEqual(expectedResult);
+				expect(actual).toEqual(expected);
 			});
 		});
 
@@ -105,14 +107,15 @@ describe('GameOfLife', () => {
 
 			it('the next generation should kill that cell due to overcrowding', () => {
 
-				const expectedResult =
+				const sut = new GameOfLife();
+				const actual = sut.getNextGeneration(startingCells);
+				const expected =
 					[
 						[0, 1, 0],
 						[1, 0, 1],
 						[0, 1, 0]
 					];
-				const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-				expect(nextGeneration).toEqual(expectedResult);
+				expect(actual).toEqual(expected);
 			});
 		});
 
@@ -127,14 +130,15 @@ describe('GameOfLife', () => {
 
 			it('the next generation should have a cross of dead cells', () => {
 
-				const expectedResult =
+				const sut = new GameOfLife();
+				const actual = sut.getNextGeneration(startingCells);
+				const expected =
 					[
 						[1, 0, 1],
 						[0, 0, 0],
 						[1, 0, 1]
 					];
-				const nextGeneration = gameOfLife.getNextGeneration(startingCells);
-				expect(nextGeneration).toEqual(expectedResult);
+				expect(actual).toEqual(expected);
 			});
 		});
 	});
