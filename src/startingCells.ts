@@ -30,7 +30,7 @@ export class StartingCells {
 			.map((_, y) => new Array<number>(gridWidth)
 				.fill(null)
 				.map((__, x) => {
-					return this.isInAreaToRandomise(gridHeight, gridWidth, y, x) ? this.randomBinary() : 0;
+					return this.isInAreaToRandomise(gridHeight, gridWidth, y, x) ? this.getRandomBinary() : 0;
 				})
 			);
 
@@ -49,7 +49,7 @@ export class StartingCells {
 		return y < gridHeight * this._fillPercentage / 100 && x < gridWidth * this._fillPercentage / 100;
 	}
 
-	private randomBinary(): number {
+	private getRandomBinary(): number {
 
 		const max = 1;
 		const min = 0;
