@@ -31,10 +31,10 @@ export class Grid {
 			for (let x = 0; x < this._gridWidth; x++) {
 
 				const colDiv = rowDiv.childNodes[x] as HTMLDivElement;
-				const cell = this._cells[y][x];
+				const cellValue = this._cells[y][x];
 
-				if (this.cellNeedsUpdating(colDiv, cell)) {
-					this.setIsActive(colDiv, cell);
+				if (this.cellNeedsUpdating(colDiv, cellValue)) {
+					this.setIsActive(colDiv, cellValue);
 				}
 			}
 		}
@@ -80,12 +80,19 @@ export class Grid {
 	}
 
 	private setIsActive(cellDiv: HTMLDivElement, isActive: number): void {
-		if (!!isActive) {
-			cellDiv.classList.remove('inactive'); //, 'animated', 'fadeOut'
-			cellDiv.classList.add('active'); //, 'animated', 'fadeIn'
-		} else {
-			cellDiv.classList.remove('active');
-			cellDiv.classList.add('inactive');
-		}
+
+		!!isActive
+			? this.setIsActiveTrue(cellDiv)
+			: this.setIsActiveFalse(cellDiv);
+	}
+
+	private setIsActiveTrue(cellDiv: HTMLDivElement): void {
+		cellDiv.classList.remove('inactive'); //, 'animated', 'fadeOut'
+		cellDiv.classList.add('active'); //, 'animated', 'fadeIn'
+	}
+
+	private setIsActiveFalse(cellDiv: HTMLDivElement): void {
+		cellDiv.classList.remove('active'); //, 'animated', 'fadeIn'
+		cellDiv.classList.add('inactive'); //, 'animated', 'fadeOut'
 	}
 }
