@@ -3,11 +3,12 @@ import { GameOfLife } from './gameOfLife';
 
 export class Grid {
 
-	private _gridHeight: number;
-	private _gridWidth: number;
+	private readonly _gridHeight: number;
+	private readonly _gridWidth: number;
+	private readonly _gameOfLife: GameOfLife;
+	private readonly _gridDiv: HTMLDivElement;
+	// tslint:disable-next-line:readonly-keyword
 	private _cells: ReadonlyArray<ReadonlyArray<number>>;
-	private _gameOfLife: GameOfLife;
-	private _gridDiv: HTMLDivElement;
 
 	constructor(startingCells: StartingCells, gameOfLife: GameOfLife, document: Document) {
 
@@ -18,7 +19,7 @@ export class Grid {
 		this._gridDiv = this.createEmptyDivs(document);
 	}
 
-	public updateGrid(): void {
+	public update(): void {
 
 		this._cells = this._gameOfLife.getNextGeneration(this._cells);
 		const allRows = this._gridDiv.querySelectorAll('.row');

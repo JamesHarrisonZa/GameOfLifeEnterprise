@@ -24,7 +24,7 @@ describe('Grid', () => {
 
 			beforeEach(() => {
 				spyOn(gameOfLife, 'getNextGeneration').and.callThrough();
-				grid.updateGrid();
+				grid.update();
 			});
 
 			it('should get the next generation of the game of life', () => expect(gameOfLife.getNextGeneration).toHaveBeenCalledTimes(1));
