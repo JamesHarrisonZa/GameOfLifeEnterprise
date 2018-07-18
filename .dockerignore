@@ -1,3 +1,7 @@
+#Packages
+node_modules/**/*
+npm-debug.log
+
 #My Folders
 .circleci/**/*
 .kubernetes/**/*
@@ -5,13 +9,16 @@
 coverage/**/*
 dist/**/*
 
-#Packages
-node_modules/**/*
-
-#Root files
-npm-debug.log
-.gitignore
+#Test config
 jasmine.json
 karma.conf.js
+
+#Root files
+.gitignore
 README.md
 tslint.json
+
+#public folder
+public/**/*
+#But not this file...
+!public/styles/grid.css
