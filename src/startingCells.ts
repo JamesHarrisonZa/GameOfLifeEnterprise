@@ -1,9 +1,9 @@
 export class StartingCells {
 
-	public CellsHeight: number;
-	public CellsWidth: number;
-	public Cells: ReadonlyArray<ReadonlyArray<number>>;
-	private _fillPercentage = 40; //Disable animations if you want to fill more
+	public readonly CellsHeight: number;
+	public readonly CellsWidth: number;
+	public readonly Cells: ReadonlyArray<ReadonlyArray<number>>;
+	private readonly _fillPercentage = 40; //Disable animations if you want to fill more, else it lags
 
 	constructor(windowHeight: number, windowWidth: number) {
 
@@ -17,7 +17,7 @@ export class StartingCells {
 		return this.getCellUnits(windowHeight);
 	}
 
-	private getCellsWidth = (windowWidth: number) => {
+	private getCellsWidth(windowWidth: number): number {
 
 		const windowMargin = 2;
 		return this.getCellUnits(windowWidth) - windowMargin;
