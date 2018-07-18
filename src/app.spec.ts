@@ -6,7 +6,7 @@ describe('App', () => {
 
 		it('should have a Grid', () => {
 			const sut = new App(window);
-			const actual = sut.Grid;
+			const actual = sut.grid;
 			expect(actual).toBeDefined();
 		});
 	});

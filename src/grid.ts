@@ -12,9 +12,9 @@ export class Grid {
 
 	constructor(startingCells: StartingCells, gameOfLife: GameOfLife, document: Document) {
 
-		this._gridHeight = startingCells.CellsHeight;
-		this._gridWidth = startingCells.CellsWidth;
-		this._cells = startingCells.Cells;
+		this._gridHeight = startingCells.cellsHeight;
+		this._gridWidth = startingCells.cellsWidth;
+		this._cells = startingCells.cells;
 		this._gameOfLife = gameOfLife;
 		this._gridDiv = this.createEmptyDivs(document);
 	}

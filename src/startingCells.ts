@@ -1,15 +1,15 @@
 export class StartingCells {
 
-	public readonly CellsHeight: number;
-	public readonly CellsWidth: number;
-	public readonly Cells: ReadonlyArray<ReadonlyArray<number>>;
+	public readonly cellsHeight: number;
+	public readonly cellsWidth: number;
+	public readonly cells: ReadonlyArray<ReadonlyArray<number>>;
 	private readonly _fillPercentage = 40; //Disable animations if you want to fill more, else it lags
 
 	constructor(windowHeight: number, windowWidth: number) {
 
-		this.CellsHeight = this.getCellsHeight(windowHeight);
-		this.CellsWidth = this.getCellsWidth(windowWidth);
-		this.Cells = this.getStartingCells(this.CellsHeight, this.CellsWidth);
+		this.cellsHeight = this.getCellsHeight(windowHeight);
+		this.cellsWidth = this.getCellsWidth(windowWidth);
+		this.cells = this.getStartingCells(this.cellsHeight, this.cellsWidth);
 	}
 
 	private getCellsHeight(windowHeight: number): number {
