@@ -25,16 +25,16 @@ export class StartingCells {
 
 	private getStartingCells(gridHeight: number, gridWidth: number): ReadonlyArray<ReadonlyArray<number>> {
 
-		const cells = new Array<number>(gridHeight)
+		return new Array<number>(gridHeight)
 			.fill(null) //Cant apply map on undefined elements, need to set to null first
 			.map((_, y) => new Array<number>(gridWidth)
 				.fill(null)
 				.map((__, x) => {
-					return this.isInAreaToRandomise(gridHeight, gridWidth, y, x) ? this.getRandomBinary() : 0;
+					return this.isInAreaToRandomise(gridHeight, gridWidth, y, x)
+						? this.getRandomBinary()
+						: 0;
 				})
 			);
-
-		return cells;
 	}
 
 	private getCellUnits(viewPortSize: number):number {
