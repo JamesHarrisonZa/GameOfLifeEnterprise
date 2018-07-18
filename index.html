@@ -13,8 +13,8 @@
 	<script type="text/javascript">
 		
 		const _refreshSeconds = 0.2;
-		const App = require('App');
-		const myGrid = new App.App(window).grid;
+		const imports = require('App');
+		const myGrid = new imports.App(window).grid;
 		window.setInterval(() => myGrid.update(), _refreshSeconds * 1000);
 	</script>
 	</html>
