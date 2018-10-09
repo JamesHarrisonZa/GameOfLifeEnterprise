@@ -1,4 +1,4 @@
-# GameOfLifeProduction
+# GameOfLifeEnterprise
 Compliments [GameOfLifeNoLibraries](https://github.com/JamesHarrisonZa/GameOfLifeNoLibraries)  
 But a production ready version with all the focus on tooling and a continuous delivery pipeline.  
 
@@ -108,5 +108,5 @@ Which has a great free tier for project apps.
 ## ToDo
 * Build step to copy css files to public folder, then git ignore public folder.
 * Investigate new Chrome module loading support in the browser which will let me remove commonjs and browserfy.    
-* JS Minification (Thinking about it) 
-* Google analytics (Maybe)  
+* JS Minification  
+* Google analytics  
